@@ -20,7 +20,7 @@ $(document).ready(function(){
                     construirTable(response.result)
                     registrarEventos();
                 }else{
-                    $('#tableBody').append('No se encontraron coincidencias');
+                    $('#tableBody').html('No se encontraron coincidencias');
                 }
             },
             error:function(response){
@@ -53,7 +53,7 @@ $(document).ready(function(){
             //Agregar al html de la tabla
             $('#tableBody').append(htmlTRow)
         }
-
+        
     }
 
 
