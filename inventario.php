@@ -45,7 +45,25 @@
                 <label for="criterio_busqueda">Buscar</label>
                 <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
                 <div id="contenedor">
-
+                        <table class='table table-striped table-bordered'>
+                            <thead class='thead-light'>
+                                <tr>
+                                    <td>Código Libro</td>
+                                    <td>Autor</td>
+                                    <td>Nombre Libro</td>
+                                    <td>Fecha Expedición</td>
+                                    <td>Disponibilidad</td>
+                                    <td>Precio Publico</td>
+                                    <td>Precio Interno</td>
+                                    <td>Reservado</td>
+                                    <td>Cantidad</td>
+                                    <td>Eliminar</td>
+                                    <td>Editar</td>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>
