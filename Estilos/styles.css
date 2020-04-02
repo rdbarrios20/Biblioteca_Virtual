@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section {
+    width: 60%;
+    height: 400px;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.container img {
+    width: 100%;
+}
+
+.background{
+    background-color: #EEF1F1;
+}
+.container form{
+    padding: 12px;
+}
+
+table{
+    padding: 12px;
+}
+
+li a{
+    font-size: 50px;
+}
