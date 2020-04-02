@@ -1,14 +1,12 @@
-// $(busqueda());
-// debugger;
-
 
 $(document).ready(function(){
 
-    //carga inicial de la funcion busqueda
+    //carga inicial de la funcion busqueda para utilizarla despues
     busqueda(null);
-
+ 
+  
     function busqueda( _criterio){
-        debugger;
+        
         $.ajax({
             url:'php/busqueda.php',
             type:'POST',
@@ -17,32 +15,86 @@ $(document).ready(function(){
                 texto: _criterio
             },
             success:function(response){
-                debugger;
+                
                 if(response.success==true){
-                    $('#contenedor').html(response.result);
+                    construirTable(response.result)
+                    registrarEventos();
+                }else{
+                    $('#tableBody').append('No se encontraron coincidencias');
                 }
             },
             error:function(response){
-                debugger;
+                
                 alert(JSON.stringify(response));
             }
         });
     }
 
+    //construimos la tabla por medio de un array concatenado
+    function construirTable(_arraylist){
+        $('#tableBody').html('');
+        
+        for (let index = 0; index < _arraylist.length; index++) {
+            const item = _arraylist[index];
+            let codigo = item['CODIGO_LIBRO'];
+            var htmlTRow =  "<tr> "
+            +"<td>" + item['CODIGO_LIBRO'] + "</td>"
+            +"<td>" + item['AUTOR'] + "</td>"
+            +"<td>" + item['NOMBRE_LIBRO'] + "</td>"
+            +"<td>" + item['FECHA_EXPEDICION'] + "</td>"
+            +"<td>" + item['DISPONIBILIDAD'] + "</td>"
+            +"<td>" + '$' + item['PRECIO_PUBLICO'] + "</td>"
+            +"<td>" + '$ ' + item['PRECIO_INTERNO'] + "</td>"
+            +"<td>" + item['RESERVADO'] + "</td>"
+            +"<td>" + item['CANTIDAD'] + "</td>"
+            +"<td> <button id='btn_busqueda' class='btn btn-danger clsEliminar' data-codigo='" +codigo+ "' ><i class='glyphicon glyphicon-trash'></i></button></td>"
+            +"<td> <button id='btn_busqueda' onclick='' class='btn btn-success' ><i class='glyphicon glyphicon-pencil'></i></button></td>"
+
+            //Agregar al html de la tabla
+            $('#tableBody').append(htmlTRow)
+        }
+
+    }
 
 
-    $(document).on('keyup','#criterio_busqueda',function(){
-        // var valor_busqueda=$(this).val();
-        // if(valor_busqueda=!""){
-        //     busqueda(valor_busqueda);
-        // }
-        // else{
-        //     busqueda();
-        // }
+    function eliminar(ide){
         debugger;
+        var opcion = confirm('Realmente desea eliminar el registro');
+        if (opcion == true) {
+            $.ajax({
+                url:'php/eliminar.php',
+                type:'POST',
+                data:{
+                    ide_libro: ide,
+                },
+                success:function(response){
+                    alert(response);
+                    location.reload();
+                },
+                error:function(response){
+
+                }
+            });  
+
+        } 
+        else {
+            return false;
+        }
+    }
+
+    function registrarEventos(){
+        $('.clsEliminar').on('click',function(){
+            let codigo = $(this).attr('data-codigo');
+            eliminar(codigo);
+        });
+    }
+    /*Realizamos el filtro de la bsuqueda por el input criterio busqueda*/
+    $('#criterio_busqueda').on('keyup',function(){
         var valor_busqueda= $(this).val();
         busqueda(valor_busqueda);
-    })
+    });
+    
+  
+  
+}); //Fin del doc ready
 
-
-});
