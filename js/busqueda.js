@@ -17,7 +17,7 @@ $(document).ready(function(){
             success:function(response){
                 
                 if(response.success==true){
-                    construirTable(response.result)
+                    construirTable(response.result);
                     registrarEventos();
                 }else{
                     $('#tableBody').html('No se encontraron coincidencias');
@@ -48,7 +48,7 @@ $(document).ready(function(){
             +"<td>" + item['RESERVADO'] + "</td>"
             +"<td>" + item['CANTIDAD'] + "</td>"
             +"<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" +codigo+ "' ><i class='glyphicon glyphicon-trash'></i></button></td>"
-            +"<td> <button id='btn_modificar' class='btn btn-success clasecrearform' data-codigo='" +codigo+ "' ><i class='glyphicon glyphicon-pencil'></i></button></td>"
+            +"<td> <button id='btn_modificar' class='btn btn-success clsmodificar' data-codigo='" +codigo+ "'><i class='glyphicon glyphicon-pencil'></i></button></td>"
 
             //Agregar al html de la tabla
             $('#tableBody').append(htmlTRow)
@@ -56,10 +56,7 @@ $(document).ready(function(){
         
     }
     
-    function modificar(_arraylist){
-        
-    }
-
+    
     function eliminar(ide){
         debugger;
         var opcion = confirm('Realmente desea eliminar el registro');
@@ -84,18 +81,35 @@ $(document).ready(function(){
             return false;
         }
     }
+    function modificar(ide){
+        debugger;
+        var opcion = confirm('Realmente desea modificar el registro');
+        if (opcion == true) {
+            $.ajax({
+                url:'',
+                type:'POST',
+                data:{
+                    ide_libro: ide,
+                },
+                success:function(response){
+                    alert(response);
+                    location.reload();
+                },
+                error:function(response){
+
+                }
+            });  
+
+        } 
+        else {
+            return false;
+        }
+    }
 
     function registrarEventos(){
         $('.clsEliminar').on('click',function(){
             let codigo = $(this).attr('data-codigo');
             eliminar(codigo);
-        });
-    }
-
-    function registrarEditar(){
-        $('.clasecrearform').click('click',function(){
-            let codigo = $(this).attr('data-codigo');
-            alert("se presiono este boton")
         });
     }
 
