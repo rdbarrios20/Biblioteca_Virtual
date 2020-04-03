@@ -65,6 +65,11 @@
                             </tbody>
                         </table>
                 </div>
+                <div>
+                    <form action="" id="form">
+
+                    </form>
+                </div>
             </div>
         </div>
     </section>

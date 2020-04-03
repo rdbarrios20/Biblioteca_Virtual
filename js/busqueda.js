@@ -47,15 +47,18 @@ $(document).ready(function(){
             +"<td>" + '$ ' + item['PRECIO_INTERNO'] + "</td>"
             +"<td>" + item['RESERVADO'] + "</td>"
             +"<td>" + item['CANTIDAD'] + "</td>"
-            +"<td> <button id='btn_busqueda' class='btn btn-danger clsEliminar' data-codigo='" +codigo+ "' ><i class='glyphicon glyphicon-trash'></i></button></td>"
-            +"<td> <button id='btn_busqueda' onclick='' class='btn btn-success' ><i class='glyphicon glyphicon-pencil'></i></button></td>"
+            +"<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" +codigo+ "' ><i class='glyphicon glyphicon-trash'></i></button></td>"
+            +"<td> <button id='btn_modificar' class='btn btn-success clasecrearform' data-codigo='" +codigo+ "' ><i class='glyphicon glyphicon-pencil'></i></button></td>"
 
             //Agregar al html de la tabla
             $('#tableBody').append(htmlTRow)
         }
         
     }
-
+    
+    function modificar(_arraylist){
+        
+    }
 
     function eliminar(ide){
         debugger;
@@ -88,6 +91,14 @@ $(document).ready(function(){
             eliminar(codigo);
         });
     }
+
+    function registrarEditar(){
+        $('.clasecrearform').click('click',function(){
+            let codigo = $(this).attr('data-codigo');
+            alert("se presiono este boton")
+        });
+    }
+
     /*Realizamos el filtro de la bsuqueda por el input criterio busqueda*/
     $('#criterio_busqueda').on('keyup',function(){
         var valor_busqueda= $(this).val();
