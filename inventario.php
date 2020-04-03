@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Estilos/dataTables.min.css">
     <link rel="stylesheet" href="Estilos/styles.css">
     <script src="js/busqueda.js"></script>
     <title>Document</title>
@@ -45,7 +43,7 @@
                 <label for="criterio_busqueda">Buscar</label>
                 <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
                 <div id="contenedor">
-                        <table class='table table-striped table-bordered'>
+                        <table class='table table-hover table-condensed table-bordered'>
                             <thead class='thead-light'>
                                 <tr>
                                     <td>Código Libro</td>
