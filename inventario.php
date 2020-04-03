@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Estilos/dataTables.min.css">
+    <link rel="stylesheet" href="Estilos/bootstrap.min.css">
     <link rel="stylesheet" href="Estilos/styles.css">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/busqueda.js"></script>
     <title>Inventario</title>
 
@@ -17,35 +18,30 @@
     <div class="container">
         <br>
         <header>
-            <nav class="navbar navbar-default">
-                <div class="navbar-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar-1">
-                            <span class="sr-only">Menu</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <label for="" class="navbar-brand">Biblioteca</label>
-                    </div>
-                    <div class="collapse navbar-collapse" id="navbar-1">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.php">Inicio</a></li>
-                            <li><a href="registro_libro.php">Registrar Libro</a></li>
-                            <li><a href="inventario.php">Consultar Inventario</a></li>
-                        </ul>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="index.php">Inicio<span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="registro_libro.php">Registro</a>
+                        <a class="nav-item nav-link active" href="inventario.php">Inventario</a>
                     </div>
                 </div>
             </nav>
         </header>
+        <br>
+        <br>
     </div>
-    <section>
-        <div class="container">
+    <section class="container">
+        <div>
             <div class="background">
                 <label for="criterio_busqueda">Buscar</label>
                 <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
-                <div id="contenedor">
-                    <table class='table table-hover table-condensed table-bordered'>
+                <div>
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <td>Código Libro</td>
@@ -61,30 +57,28 @@
                                 <td>Editar</td>
                             </tr>
                         </thead>
-                        <tbody id="tableBody">
+                        <tbody id="tableBody" class="table">
                         </tbody>
                     </table>
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                     Launch demo modal
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                             </div>
                             <div class="modal-body">
                                 ...
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
