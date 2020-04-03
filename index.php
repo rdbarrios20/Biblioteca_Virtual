@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="Estilos/bootstrap.min.css">
     <link rel="stylesheet" href="Estilos/styles.css">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/busqueda.js"></script>
     <title>Inicio</title>
 </head>
 
@@ -13,23 +17,16 @@
     <div class="container">
         <br>
         <header>
-            <nav class="navbar navbar-default">
-                <div class="navbar-fluid">
-                    <div class="navbar-header"> 
-                        <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar-1">
-                            <span class="sr-only">Menu</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <label for="" class="navbar-brand">Biblioteca</label>
-                    </div>
-                    <div class="collapse navbar-collapse" id="navbar-1">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.php">Inicio</a></li>
-                            <li><a href="registro_libro.php">Registrar Libro</a></li>
-                            <li><a href="inventario.php">Consultar Inventario</a></li>
-                        </ul>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="index.php">Inicio<span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="registro_libro.php">Registro</a>
+                        <a class="nav-item nav-link active" href="inventario.php">Inventario</a>
                     </div>
                 </div>
             </nav>
