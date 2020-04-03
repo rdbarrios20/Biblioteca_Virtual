@@ -46,7 +46,7 @@
                 <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
                 <div id="contenedor">
                         <table class='table table-hover table-condensed table-bordered'>
-                            <thead class='thead-light'>
+                            <thead>
                                 <tr>
                                     <td>Código Libro</td>
                                     <td>Autor</td>
