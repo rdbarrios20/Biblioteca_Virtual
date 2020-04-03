@@ -45,32 +45,53 @@
                 <label for="criterio_busqueda">Buscar</label>
                 <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
                 <div id="contenedor">
-                        <table class='table table-hover table-condensed table-bordered'>
-                            <thead>
-                                <tr>
-                                    <td>Código Libro</td>
-                                    <td>Autor</td>
-                                    <td>Nombre Libro</td>
-                                    <td>Fecha Expedición</td>
-                                    <td>Disponibilidad</td>
-                                    <td>Precio Publico</td>
-                                    <td>Precio Interno</td>
-                                    <td>Reservado</td>
-                                    <td>Cantidad</td>
-                                    <td>Eliminar</td>
-                                    <td>Editar</td>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                            </tbody>
-                        </table>
+                    <table class='table table-hover table-condensed table-bordered'>
+                        <thead>
+                            <tr>
+                                <td>Código Libro</td>
+                                <td>Autor</td>
+                                <td>Nombre Libro</td>
+                                <td>Fecha Expedición</td>
+                                <td>Disponibilidad</td>
+                                <td>Precio Publico</td>
+                                <td>Precio Interno</td>
+                                <td>Reservado</td>
+                                <td>Cantidad</td>
+                                <td>Eliminar</td>
+                                <td>Editar</td>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        </tbody>
+                    </table>
                 </div>
-                <div>
-                    <form action="" id="form">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    Launch demo modal
+                </button>
 
-                    </form>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <footer></footer>
