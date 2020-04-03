@@ -18,7 +18,7 @@
     <div class="container">
         <br>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,8 +35,8 @@
         <br>
         <br>
     </div>
-    <section class="container">
-        <div>
+    <section>
+        <div class="container">
             <div class="background">
                 <label for="criterio_busqueda">Buscar</label>
                 <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
@@ -57,7 +57,7 @@
                                 <td>Editar</td>
                             </tr>
                         </thead>
-                        <tbody id="tableBody" class="table">
+                        <tbody id="tableBody">
                         </tbody>
                     </table>
                 </div>
