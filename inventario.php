@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-item nav-link active" href="index.php">Inicio<span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link active" href="registro_libro.php">Registro</a>
+                        <a class="nav-item nav-link active" href="registro_libro.php">Registro Libro</a>
                         <a class="nav-item nav-link active" href="inventario.php">Inventario</a>
                     </div>
                 </div>
@@ -36,11 +36,11 @@
         <br>
     </div>
     <section>
-        <div class="container">
+        <div class="container-lg">
             <div class="background">
                 <label for="criterio_busqueda">Buscar</label>
                 <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
-                <div>
+                <div class="contenedor">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -82,17 +82,16 @@
                                 <label for="">Disponibilidad</label>
                                 <input type="text" name="" id="disponibilidad" class="form-control input-sm">
                                 <label for="">Precio Publico</label>
-                                <input type="text" name="" id="" class="form-control input-sm">
+                                <input type="text" name="" id="precio_publico" class="form-control input-sm">
                                 <label for="">Precio Interno</label>
-                                <input type="text" name="" id="" class="form-control input-sm">
+                                <input type="text" name="" id="precio_interno" class="form-control input-sm">
                                 <label for="">Reservado</label>
-                                <input type="text" name="" id="" class="form-control input-sm">
+                                <input type="text" name="" id="reservado" class="form-control input-sm">
                                 <label for="">Cantidad</label>
-                                <input type="text" name="" id="" class="form-control input-sm">
+                                <input type="text" name="" id="cantidad" class="form-control input-sm">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-success" data-dismiss="modal">Modificar</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
