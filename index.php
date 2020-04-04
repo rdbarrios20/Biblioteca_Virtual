@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Estilos/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="Estilos/styles.css">
 
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/busqueda.js"></script>
+    <script src="Scripts/busqueda.js"></script>
+    <script src="popper/popper.min.js"></script>
     <title>Inicio</title>
 </head>
 
