@@ -61,25 +61,38 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Launch demo modal
-                </button>
 
-                <!-- Modal -->
+                <!-- Modal modificar registro libro-->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                <h4 class="modal-title" id="myModalLabel">Modificar el libro seleccionado</h4>
                             </div>
-                            <div class="modal-body">
-                                ...
+                            <div class="modal-body" class="form-control input-sm">
+                                <label for="">Codígo Libro</label>
+                                <input type="text" name="" id="codigo" class="form-control input-sm">
+                                <label for="">Autor</label>
+                                <input type="text" name="" id="autor" class="form-control input-sm">
+                                <label for="">Nombre Libro</label>
+                                <input type="text" name="" id="nombre_libro" class="form-control input-sm">
+                                <label for="">Fecha Expedición</label>
+                                <input type="text" name="" id="fecha_expedicion" class="form-control input-sm">
+                                <label for="">Disponibilidad</label>
+                                <input type="text" name="" id="disponibilidad" class="form-control input-sm">
+                                <label for="">Precio Publico</label>
+                                <input type="text" name="" id="" class="form-control input-sm">
+                                <label for="">Precio Interno</label>
+                                <input type="text" name="" id="" class="form-control input-sm">
+                                <label for="">Reservado</label>
+                                <input type="text" name="" id="" class="form-control input-sm">
+                                <label for="">Cantidad</label>
+                                <input type="text" name="" id="" class="form-control input-sm">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Modificar</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
