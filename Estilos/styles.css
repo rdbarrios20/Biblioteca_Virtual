@@ -13,6 +13,7 @@
 
 .container img {
     width: 100%;
+    height: 500px;
 }
 
 .background{
@@ -33,4 +34,8 @@ table thead{
 }
 li a{
     font-size: 10px;
+}
+
+.contenedor{
+    overflow-x: auto;
 }
