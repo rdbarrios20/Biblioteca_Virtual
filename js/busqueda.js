@@ -47,8 +47,8 @@ $(document).ready(function(){
             +"<td>" + '$ ' + item['PRECIO_INTERNO'] + "</td>"
             +"<td>" + item['RESERVADO'] + "</td>"
             +"<td>" + item['CANTIDAD'] + "</td>"
-            +"<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" +codigo+ "' ><i class='glyphicon glyphicon-trash'></i></button></td>"
-            +"<td> <button id='btn_modificar' class='btn btn-success clsmodificar' data-codigo='" +codigo+ "'><i class='glyphicon glyphicon-pencil'></i></button></td>"
+            +"<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" +codigo+ "'>Borrar</button></td>"
+            +"<td> <button id='btn_modificar' class='btn btn-success clsmodificar' data-codigo='" +codigo+ "' data-toggle='modal' data-target='#myModal'>Editar</button></td>"
 
             //Agregar al html de la tabla
             $('#tableBody').append(htmlTRow)
