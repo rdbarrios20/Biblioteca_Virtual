@@ -85,7 +85,7 @@
                         },
                         error: function(response) {
                             debugger;
-                            alert(response);
+                            alert("Verifique el codigo del libro e intente de nuevo");
                         }
                     });
                 }
@@ -166,7 +166,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Reservado</label>
-                    <input type="checkbox" name="reservado" id="reservado">
+                    <input type="checkbox" name="reservado" id="reservado" value="1">
                 </div>
                 <div class="form-group">
                     <label for="">Cantidad</label>
