@@ -126,16 +126,17 @@ $(document).ready(function(){
     });
     
     function agregardatosform(_arraylist){
-        const item = _arraylist[index];
-        $('#codigo').val('');
-        $('#autor').val('');
-        $('#nombre_libro').val('');
-        $('#fecha_expedicion').val('');
-        $('#disponibilidad').prop('selectedIndex', 0);
-        $('#precio_publico').val('');
-        $('#precio_interno').val('');
-        $('#reservado').val('');
-        $('#cantidad').val('');
+        debugger;
+        dato = _arraylist.split('| |',8);
+        $('#codigo').val(dato[0]);
+        $('#autor').val(dato[1]);
+        $('#nombre_libro').val(dato[2]);
+        $('#fecha_expedicion').val(dato[3]);
+        $('#disponibilidad').val(dato[4]);
+        $('#precio_publico').val(dato[5]);
+        $('#precio_interno').val(dato[6]);
+        $('#reservado').val(dato[7]);
+        $('#cantidad').val(dato[8]);
     }
   
 }); //Fin del doc ready
