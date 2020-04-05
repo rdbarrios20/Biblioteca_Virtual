@@ -37,8 +37,9 @@
         <br>
     </div>
     <section>
-        <div class="container-lg">
+        <div class="container-fluid">
             <div class="background">
+                <br>
                 <label for="criterio_busqueda">Buscar</label>
                 <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
                 <div class="contenedor">
