@@ -74,7 +74,7 @@
                         success: function(response) {
                             if (response.success == true) {
                                 alert(response.message);
-
+                                location.reload();
                             }
                         },
                         error: function(response) {
@@ -117,7 +117,7 @@
             <div class="background">
                 <br>
                 <label for="criterio_busqueda">Buscar</label>
-                <input type="text" name="criterio_busqueda" id="criterio_busqueda"></input>
+                <input type="search" name="criterio_busqueda" class="fs fas-search" id="criterio_busqueda"></input>
                 <div class="contenedor">
                     <table class="table table-bordered">
                         <thead>
