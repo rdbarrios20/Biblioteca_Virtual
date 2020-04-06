@@ -92,30 +92,6 @@ $(document).ready(function () {
             return false;
         }
     }
-    function modificar(ide) {
-        debugger;
-        var opcion = confirm('Realmente desea modificar el registro');
-        if (opcion == true) {
-            $.ajax({
-                url: '',
-                type: 'POST',
-                data: {
-                    ide_libro: ide,
-                },
-                success: function (response) {
-                    alert(response);
-                    location.reload();
-                },
-                error: function (response) {
-
-                }
-            });
-
-        }
-        else {
-            return false;
-        }
-    }
 
     function eliminarRegistro() {
         $('.clsEliminar').on('click', function () {
@@ -129,6 +105,7 @@ $(document).ready(function () {
             agregardatosform(codigo);
         });
     }
+    
     //Realizamos el filtro de la bsuqueda por el input criterio busqueda
     $('#criterio_busqueda').on('keyup', function () {
         var valor_busqueda = $(this).val();
