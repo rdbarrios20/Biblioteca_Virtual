@@ -14,59 +14,80 @@
     <title>Inventario</title>
 
     <script type="text/javascript">
-        $("#form").on('submit', function(event) {
-            debugger;
-            if (parseInt($('#precio_publico').val()) <= parseInt($('#precio_interno').val())) {
-                alert('El precio publico no puede ser menor al precio interno verifique los datos');
-            } else {
-                $.ajax({
-                    url: 'php/insertar.php',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        codigo: $('#codigo').val(),
-                        autor: $('#autor').val(),
-                        nombre_libro: $('#nombre_libro').val(),
-                        fecha_expedicion: $('#fecha_expedicion').val(),
-                        disponibilidad: $('#disponibilidad').val(),
-                        precio_publico: $('#precio_publico').val(),
-                        precio_interno: $('#precio_interno').val(),
-                        reservado: $('#reservado').val(),
-                        cantidad: $('#cantidad').val(),
-                    },
-                    //Traemos la respuesta de retorno en caso de que los datos se guarden correctamente en formato json
-                    success: function(response) {
-                        if (response.success == true) {
-                            alert(response.message);
-                            //Invocar funcion limpiar
-                            limpiar();
+        $(document).ready(function() {
+            $("#codigo").keyup(function() {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+            $("#autor").keyup(function() {
+                this.value = (this.value + '').replace(/[^ a-záéíóúüñ]+/ig, '');
+            });
+            $("#nombre_libro").keyup(function() {
+                this.value = (this.value + '').replace(/[^ a-záéíóúüñ]+/ig, '');
+            });
+            $("#precio_publico").keyup(function() {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+            $("#precio_interno").keyup(function() {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+
+            $('#modificar').click(function() {
+                //validamos los campos que no esten vacios usamos length para verificar si hay algun caracter escrito en nuestro campo de texto si es menor a 1 entonces 
+                //es falso y por lo tanto el campo es vacio
+                if ($("#codigo").val().length < 1) {
+                    alert("El campo codigo no puede ser vacio")
+                    return false;
+                } else if ($("#autor").val().length < 1) {
+                    alert("El campo Autor no puede ser vacio")
+                    return false;
+                } else if ($("#nombre_libro").val().length < 1) {
+                    alert("El campo Nombre del libro no puede ser vacio")
+                    return false;
+                } else if ($("#precio_publico").val().length < 1) {
+                    alert("El campo Precio publico no puede ser vacio")
+                    return false;
+                } else if ($("#precio_interno").val().length < 1) {
+                    alert("El campo Precio interno  no puede ser vacio")
+                    return false;
+                }
+                var opcion = confirm('Realmente desea modificar el registro');
+                if ((parseInt($('#precio_publico').val()) <= parseInt($('#precio_interno').val()))) {
+                    alert("El precio publico no puede ser menor al precio interno");
+                }
+                if (opcion == true) {
+                    $.ajax({
+                        url: 'php/modificar.php',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            codigo: $('#codigo').val(),
+                            autor: $('#autor').val(),
+                            nombre_libro: $('#nombre_libro').val(),
+                            fecha_expedicion: $('#fecha_expedicion').val(),
+                            disponibilidad: $('#disponibilidad').val(),
+                            precio_publico: $('#precio_publico').val(),
+                            precio_interno: $('#precio_interno').val(),
+                            reservado: $('#reservado').val(),
+                            cantidad: $('#cantidad').val(),
+                        },
+                        //Traemos la respuesta de retorno en caso de que los datos se modifiquen correctamente en formato json
+                        success: function(response) {
+                            if (response.success == true) {
+                                alert(response.message);
+
+                            }
+                        },
+                        error: function(response) {
+                            debugger;
+                            alert("Verifique el codigo del libro e intente de nuevo");
                         }
-                    },
-                    error: function(response) {
-                        debugger;
-                        alert("Verifique el codigo del libro e intente de nuevo");
-                    }
-                });
-            }
-            // return false;
-            event.preventDefault();
+                    });
 
-
-            function limpiar() {
-
-                $('#codigo').val('');
-                $('#autor').val('');
-                $('#nombre_libro').val('');
-                $('#fecha_expedicion').val('');
-                $('#disponibilidad').prop('selectedIndex', 0);
-                $('#precio_publico').val('');
-                $('#precio_interno').val('');
-                $('#reservado').val('');
-                $('#cantidad').val('');
-            }
+                } else {
+                    return false;
+                }
+            })
         });
-        
-        
     </script>
 </head>
 
@@ -128,29 +149,28 @@
                                 <h4 class="modal-title" id="myModalLabel">Modificar el libro seleccionado</h4>
                             </div>
                             <div class="modal-body" class="form-control input-sm">
-                                <form id="form">
-                                    <label for="">Codígo Libro</label>
-                                    <input type="text" name="" id="codigo" class="form-control input-sm">
-                                    <label for="">Autor</label>
-                                    <input type="text" name="" id="autor" class="form-control input-sm">
-                                    <label for="">Nombre Libro</label>
-                                    <input type="text" name="" id="nombre_libro" class="form-control input-sm">
-                                    <label for="">Fecha Expedición</label>
-                                    <input type="text" name="" id="fecha_expedicion" class="form-control input-sm">
-                                    <label for="">Disponibilidad</label>
-                                    <input type="text" name="" id="disponibilidad" class="form-control input-sm">
-                                    <label for="">Precio Publico</label>
-                                    <input type="text" name="" id="precio_publico" class="form-control input-sm">
-                                    <label for="">Precio Interno</label>
-                                    <input type="text" name="" id="precio_interno" class="form-control input-sm">
-                                    <label for="">Reservado</label>
-                                    <input type="text" name="" id="reservado" class="form-control input-sm">
-                                    <label for="">Cantidad</label>
-                                    <input type="text" name="" id="cantidad" class="form-control input-sm">
-                                </form>
+                                <label for="">Codígo Libro</label>
+                                <input type="text" name="" id="codigo" class="form-control input-sm">
+                                <label for="">Autor</label>
+                                <input type="text" name="" id="autor" class="form-control input-sm">
+                                <label for="">Nombre Libro</label>
+                                <input type="text" name="" id="nombre_libro" class="form-control input-sm">
+                                <label for="">Fecha Expedición</label>
+                                <input type="text" name="" id="fecha_expedicion" class="form-control input-sm">
+                                <label for="">Disponibilidad</label>
+                                <input type="text" name="" id="disponibilidad" class="form-control input-sm">
+                                <label for="">Precio Publico</label>
+                                <input type="text" name="" id="precio_publico" class="form-control input-sm">
+                                <label for="">Precio Interno</label>
+                                <input type="text" name="" id="precio_interno" class="form-control input-sm">
+                                <label for="">Reservado</label>
+                                <input type="text" name="" id="reservado" class="form-control input-sm">
+                                <label for="">Cantidad</label>
+                                <input type="text" name="" id="cantidad" class="form-control input-sm">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="">Modificar</button>
+                                <button type="submit" id="modificar" class="btn btn-success" data-dismiss="modal">Modificar</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
