@@ -48,7 +48,7 @@ $(document).ready(function () {
             let reservado = item['RESERVADO'];
             let cantidad = item['CANTIDAD'];
 
-            var htmlTRow = "<tr class='scope=row'  data-codigo='" + codigo + "'> "
+            var htmlTRow = "<tr id='idLibroTr_" + codigo+ "' > "
                 + "<td>" + item['CODIGO_LIBRO'] + "</td>"
                 + "<td>" + item['AUTOR'] + "</td>"
                 + "<td>" + item['NOMBRE_LIBRO'] + "</td>"
@@ -67,7 +67,7 @@ $(document).ready(function () {
 
     }
 
-    function eliminar(ide) {
+    function eliminar(codigo) {
         debugger;
         var opcion = confirm('Realmente desea eliminar el registro');
         if (opcion == true) {
@@ -75,11 +75,12 @@ $(document).ready(function () {
                 url: 'php/eliminar.php',
                 type: 'POST',
                 data: {
-                    ide_libro: ide,
+                    ide_libro: codigo,
                 },
                 success: function (response) {
+                    // location.reload();
+                    $('#idLibroTr_'+ codigo).remove();
                     alert(response);
-                    location.reload();
                 },
                 error: function (response) {
 
