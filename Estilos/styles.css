@@ -41,5 +41,24 @@ li a{
 }
 
 tbody tr:hover{
-    background-color: rgb(196, 190, 184);
+    background-color: rgb(255, 255, 255);
+}
+
+#cantidad{
+    width: 50px;
+}
+
+.busqueda{
+    margin-left: 15px;
+}
+
+.modal-registro{
+    background-color: rgb(66, 65, 65);
+    height: 50px;
+    color: white;
+}
+
+.modal-registro h4{
+    padding: 12px;
+    text-align: center;
 }
