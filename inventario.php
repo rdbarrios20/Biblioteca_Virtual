@@ -51,10 +51,13 @@
                     return false;
                 }
                 var opcion = confirm('Realmente desea modificar el registro');
-                if ((parseInt($('#precio_publico').val()) <= parseInt($('#precio_interno').val()))) {
-                    alert("El precio publico no puede ser menor al precio interno");
-                }
-                if (opcion == true) {
+                if (parseInt($('#precio_publico').val()) <= parseInt($('#precio_interno').val())) {
+                    alert('El precio publico no puede ser menor al precio interno verifique los datos');
+                } else if (parseInt($('#precio_publico').val()) > 1000000) {//Validamos que no se exceda el precio en ambos valores publico e interno
+                    alert("Esta excediendo el precio que es de 1.000.000");
+                } else if ((parseInt($('#precio_interno').val()) > 1000000)) {
+                    alert("Esta excediendo el precio que es de 1.000.000");
+                } else if (opcion == true) {
                     $.ajax({
                         url: 'php/modificar.php',
                         type: 'POST',
@@ -75,7 +78,7 @@
                         success: function(response) {
                             if (response.success == true) {
                                 alert(response.message);
-                                
+
                                 //
                                 // location.reload();
 
@@ -98,8 +101,7 @@
 </head>
 
 <body>
-    <div class="container">
-        <br>
+    <div>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Biblioteca</a>
@@ -119,45 +121,48 @@
         <br>
     </div>
     <section>
-        <div class="container-fluid">
+        <div>
             <div class="background">
                 <br>
-                <label for="criterio_busqueda">Buscar</label>
-                <input type="text" name="criterio_busqueda" class="fs fas-search" id="criterio_busqueda"></input>
+                <div class="busqueda">
+                    <label for="criterio_busqueda">Buscar</label>
+                    <input type="text" name="criterio_busqueda" class="fs fas-search" id="criterio_busqueda"></input>
+                </div>
                 <div class="contenedor">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <td>Código Libro</td>
-                                <td>Autor</td>
-                                <td>Nombre Libro</td>
-                                <td>Fecha Expedición</td>
-                                <td>Disponibilidad</td>
-                                <td>Precio Publico</td>
-                                <td>Precio Interno</td>
-                                <td>Reservado</td>
-                                <td>Cantidad</td>
-                                <td>Eliminar</td>
-                                <td>Editar</td>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody">
-                        </tbody>
-                    </table>
+                    <div class="table_responsive">
+                        <table class="table table-bordered table">
+                            <thead>
+                                <tr>
+                                    <td scope="col">Código Libro</td>
+                                    <td scope="col">Autor</td>
+                                    <td scope="col">Nombre Libro</td>
+                                    <td scope="col">Fecha Expedición</td>
+                                    <td scope="col">Disponibilidad</td>
+                                    <td scope="col">Precio Publico</td>
+                                    <td scope="col">Precio Interno</td>
+                                    <td scope="col">Reservado</td>
+                                    <td scope="col">Cantidad</td>
+                                    <td scope="col">Eliminar</td>
+                                    <td scope="col">Editar</td>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <!-- Modal modificar registro libro-->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Modificar el libro seleccionado</h4>
+                            <div class="modal-registro">
+                                <h4 id="myModalLabel">Modificar el libro seleccionado</h4>
                             </div>
                             <div class="modal-body" class="form-control input-sm">
                                 <label for="">Codígo Libro</label>
                                 <input type="text" name="" id="codigo" class="form-control input-sm">
-                                <input type="hidden" name="" id="codigo_old" >
+                                <input type="hidden" name="" id="codigo_old">
                                 <label for="">Autor</label>
                                 <input type="text" name="" id="autor" class="form-control input-sm">
                                 <label for="">Nombre Libro</label>
