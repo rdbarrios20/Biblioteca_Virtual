@@ -59,7 +59,12 @@
                 debugger;
                 if (parseInt($('#precio_publico').val()) <= parseInt($('#precio_interno').val())) {
                     alert('El precio publico no puede ser menor al precio interno verifique los datos');
+                } else if (parseInt($('#precio_publico').val()) > 1000000) {//Validamos que no se exceda el precio en ambos valores publico e interno
+                    alert("Esta excediendo el precio que es de 1.000.000");
+                } else if ((parseInt($('#precio_interno').val()) > 1000000)) {
+                    alert("Esta excediendo el precio que es de 1.000.000");
                 } else {
+                    //Enviamos los datos a la basde de Datos
                     $.ajax({
                         url: 'php/insertar.php',
                         type: 'POST',
@@ -162,7 +167,7 @@
                 </div>
                 <div class="form-group error">
                     <label for="">Precio Interno</label>
-                    <input type="text" name="precio_interno" id="precio_interno" class="form-control"  placeholder="$">
+                    <input type="text" name="precio_interno" id="precio_interno" class="form-control" placeholder="$">
                 </div>
                 <div class="form-group">
                     <label for="">Reservado</label>
