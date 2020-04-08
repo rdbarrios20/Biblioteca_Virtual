@@ -60,6 +60,7 @@
                         type: 'POST',
                         dataType: 'json',
                         data: {
+                            codigo_viejo: $('#codigo_old').val(),
                             codigo: $('#codigo').val(),
                             autor: $('#autor').val(),
                             nombre_libro: $('#nombre_libro').val(),
@@ -74,7 +75,12 @@
                         success: function(response) {
                             if (response.success == true) {
                                 alert(response.message);
-                                location.reload();
+                                
+                                //
+                                // location.reload();
+
+                                // llamar la funcion de construir table y actualir el registro especifico en la tabla de html
+                                // $('.clase_id_332').html('') elimnar 
                             }
                         },
                         error: function(response) {
@@ -151,6 +157,7 @@
                             <div class="modal-body" class="form-control input-sm">
                                 <label for="">Codígo Libro</label>
                                 <input type="text" name="" id="codigo" class="form-control input-sm">
+                                <input type="hidden" name="" id="codigo_old" >
                                 <label for="">Autor</label>
                                 <input type="text" name="" id="autor" class="form-control input-sm">
                                 <label for="">Nombre Libro</label>
