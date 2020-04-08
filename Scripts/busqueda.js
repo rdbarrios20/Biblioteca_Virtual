@@ -48,7 +48,7 @@ $(document).ready(function () {
             let reservado = item['RESERVADO'];
             let cantidad = item['CANTIDAD'];
 
-            var htmlTRow = "<tr class='clsEliminarTrLevel'  data-codigo='" + codigo + "'> "
+            var htmlTRow = "<tr class='scope=row'  data-codigo='" + codigo + "'> "
                 + "<td>" + item['CODIGO_LIBRO'] + "</td>"
                 + "<td>" + item['AUTOR'] + "</td>"
                 + "<td>" + item['NOMBRE_LIBRO'] + "</td>"
@@ -66,7 +66,6 @@ $(document).ready(function () {
         }
 
     }
-estas ahi? me tengo que ir
 
     function eliminar(ide) {
         debugger;
