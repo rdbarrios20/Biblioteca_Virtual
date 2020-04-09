@@ -15,7 +15,7 @@
     <script type="text/javascript">
         //validamos los campos que no esten vacios usamos length para verificar si hay algun caracter escrito en nuestro campo de texto si es menor a 1 entonces 
         //es falso y por lo tanto el campo es vacio
-        /* $(document).ready(function() {
+        $(document).ready(function() {
              $('#btenviar').click(function() {
                  if ($("#codigo").val().length < 1) {
                      alert("El campo codigo no puede ser vacio")
@@ -34,7 +34,7 @@
                      return false;
                  }
              });
-         });*/
+         });
 
         //validamos los campos que solo deban contener numeros usamos keyup para cuando se presiona una tecla se valide tanto para solo numeros o solo letras
         $(document).ready(function() {
