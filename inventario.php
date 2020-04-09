@@ -58,13 +58,17 @@
                 } else if ((parseInt($('#precio_interno').val()) > 1000000)) {
                     alert("Esta excediendo el precio que es de 1.000.000");
                 } else if (opcion == true) {
+
+                    let cViejo =  $('#codigo_old').val();
+                    let cNuevo =  $('#codigo').val();
+
                     $.ajax({
                         url: 'php/modificar.php',
                         type: 'POST',
                         dataType: 'json',
                         data: {
-                            codigo_viejo: $('#codigo_old').val(),
-                            codigo: $('#codigo').val(),
+                            codigo_viejo: cViejo,
+                            codigo: cNuevo,
                             autor: $('#autor').val(),
                             nombre_libro: $('#nombre_libro').val(),
                             fecha_expedicion: $('#fecha_expedicion').val(),
@@ -77,13 +81,34 @@
                         //Traemos la respuesta de retorno en caso de que los datos se modifiquen correctamente en formato json
                         success: function(response) {
                             if (response.success == true) {
-                                alert(response.message);
 
-                                //
-                                // location.reload();
+                                //Actualizar html de la fila con los nuevos registros
+                                var htmlTRow = "<td>" + cNuevo + "</td>"
+                                    + "<td>" +  $('#autor').val() + "</td>"
+                                    + "<td>" +  $('#nombre_libro').val()  + "</td>"
+                                    + "<td>" +  $('#fecha_expedicion').val() + "</td>"
+                                    + "<td>" + $('#disponibilidad').val()+ "</td>"
+                                    + "<td>" + '$' + $('#precio_publico').val() + "</td>"
+                                    + "<td>" + '$ ' + $('#precio_interno').val() + "</td>"
+                                    + "<td>" + $('#reservado').val()+ "</td>"
+                                    + "<td>" + $('#cantidad').val() + "</td>"
+                                    + "<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" + cNuevo + "'>Borrar</button></td>"
+                                    + "<td> <button id='btn_modificar' class='btn btn-warning clsModificar' data-codigo='"+ cNuevo +"' data-toggle='modal' data-target='#myModal'>Editar</button></td>"
+                                    + "</tr>";
+                                    
+                                    //Limpiar el registro
+                                    $('#idLibroTr_'+ cViejo).html('');
+                                    //Agregar al html del registro
+                                    $('#idLibroTr_'+ cViejo).append(htmlTRow)
 
-                                // llamar la funcion de construir table y actualir el registro especifico en la tabla de html
-                                // $('.clase_id_332').html('') elimnar 
+                                    // Reemplazo del id con codigo viejo por codigo nuevo en el atributo id 
+                                    let nuevo_id = 'idLibroTr_'+ cNuevo;
+                                    $('#idLibroTr_'+ cViejo).attr('id', nuevo_id);
+                                    //ACtulizar los valores que tenieamos en nuestro modal, tanto el visible como el oculto tanto el vis
+                                    $('#codigo').attr('value', cNuevo);
+                                    $('#codigo_old').attr('value', cNuevo);
+
+                                    alert(response.message);
                             }
                         },
                         error: function(response) {
