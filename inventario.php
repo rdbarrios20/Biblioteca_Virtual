@@ -104,7 +104,7 @@
                                     // Reemplazo del id con codigo viejo por codigo nuevo en el atributo id 
                                     let nuevo_id = 'idLibroTr_'+ cNuevo;
                                     $('#idLibroTr_'+ cViejo).attr('id', nuevo_id);
-                                    //ACtulizar los valores que tenieamos en nuestro modal, tanto el visible como el oculto tanto el vis
+                                    //ACtulizar los valores que tenieamos en nuestro modal, tanto el visible como el oculto, tanto el vis
                                     $('#codigo').attr('value', cNuevo);
                                     $('#codigo_old').attr('value', cNuevo);
 
