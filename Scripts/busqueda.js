@@ -39,27 +39,19 @@ $(document).ready(function () {
             const item = _arraylist[index];
             //Definimos una variable de tipo local let para guardar el dato que requerimos
             let codigo = item['CODIGO_LIBRO'];
-            let autor = item['AUTOR'];
-            let nombre_libro = item['NOMBRE_LIBRO'];
-            let fecha_expedicion = item['FECHA_EXPEDICION'];
-            let disponibilidad = item['DISPONIBILIDAD'];
-            let precio_publico = item['PRECIO_PUBLICO'];
-            let precio_interno = item['PRECIO_INTERNO'];
-            let reservado = item['RESERVADO'];
-            let cantidad = item['CANTIDAD'];
 
             var htmlTRow = "<tr id='idLibroTr_" + codigo+ "' > "
-                + "<td>" + item['CODIGO_LIBRO'] + "</td>"
-                + "<td>" + item['AUTOR'] + "</td>"
-                + "<td>" + item['NOMBRE_LIBRO'] + "</td>"
-                + "<td>" + item['FECHA_EXPEDICION'] + "</td>"
-                + "<td>" + item['DISPONIBILIDAD'] + "</td>"
-                + "<td>" + '$' + item['PRECIO_PUBLICO'] + "</td>"
-                + "<td>" + '$ ' + item['PRECIO_INTERNO'] + "</td>"
-                + "<td>" + item['RESERVADO'] + "</td>"
-                + "<td>" + item['CANTIDAD'] + "</td>"
+                + "<td class='clsCodigo'>" + item['CODIGO_LIBRO'] + "</td>"
+                + "<td class='clsAutor'>" + item['AUTOR'] + "</td>"
+                + "<td class='clsNombreL'>" + item['NOMBRE_LIBRO'] + "</td>"
+                + "<td class='clsFechaEp'>" + item['FECHA_EXPEDICION'] + "</td>"
+                + "<td class='clsDisp'>" + item['DISPONIBILIDAD'] + "</td>"
+                + "<td class='clsPrecioP'>" + '$' + item['PRECIO_PUBLICO'] + "</td>"
+                + "<td class='clsPrecioI'>" + '$ ' + item['PRECIO_INTERNO'] + "</td>"
+                + "<td class='clsReservado'>" + item['RESERVADO'] + "</td>"
+                + "<td class='clsCantidad'>" + item['CANTIDAD'] + "</td>"
                 + "<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" + codigo + "'>Borrar</button></td>"
-                + "<td> <button id='btn_modificar' class='btn btn-warning clsmodificar' data-codigo='" + codigo + "," + autor + "," + nombre_libro + "," + fecha_expedicion + "," + disponibilidad + "," + precio_publico + "," +precio_interno+ "," +reservado+ "," +cantidad+ "' data-toggle='modal' data-target='#myModal'>Editar</button></td>"
+                + "<td> <button id='btn_modificar' class='btn btn-warning clsmodificar' data-codigo='" + codigo + "' data-toggle='modal' data-target='#myModal'>Editar</button></td>"
 
             //Agregar al html de la tabla
             $('#tableBody').append(htmlTRow)
@@ -113,19 +105,29 @@ $(document).ready(function () {
     });
 
     //Agregamos los datos al formulario modal para modificarlos despues 
-    function agregardatosform(_arraylist) {
+    function agregardatosform(codigo_viejo) {
         debugger;
-        dato = _arraylist.split(',');
-        $('#codigo_old').val(dato[0]);
-        $('#codigo').val(dato[0]);
-        $('#autor').val(dato[1]);
-        $('#nombre_libro').val(dato[2]);
-        $('#fecha_expedicion').val(dato[3]);
-        $('#disponibilidad').val(dato[4]);
-        $('#precio_publico').val(dato[5]);
-        $('#precio_interno').val(dato[6]);
-        $('#reservado').val(dato[7]);
-        $('#cantidad').val(dato[8]);
+        
+        let autor = $('#idLibroTr_'+ codigo_viejo + ' > .clsAutor').text();    
+        let nombre = $('#idLibroTr_'+ codigo_viejo + ' > .clsNombreL').text();    
+        let fecha_expedicion = $('#idLibroTr_'+ codigo_viejo + ' > .clsFechaEp').text();    
+        let disponibilidad = $('#idLibroTr_'+ codigo_viejo + ' > .clsDisp').text();    
+        let precio_publico = $('#idLibroTr_'+ codigo_viejo + ' > .clsPrecioP').text();    
+        let precio_interno = $('#idLibroTr_'+ codigo_viejo + ' > .clsPrecioI').text();    
+        let reservado = $('#idLibroTr_'+ codigo_viejo + ' > .clsReservado').text();    
+        let cantidad = $('#idLibroTr_'+ codigo_viejo + ' > .clsCantidad').text();    
+
+        $('#codigo').val(codigo_viejo);
+        $('#codigo_old').val(codigo_viejo);
+
+        $('#autor').val(autor);
+        $('#nombre_libro').val(nombre);
+        $('#fecha_expedicion').val(fecha_expedicion);
+        $('#disponibilidad').val(disponibilidad);
+        $('#precio_publico').val(precio_publico);
+        $('#precio_interno').val(precio_interno);
+        $('#reservado').val(reservado);
+        $('#cantidad').val(cantidad);
     }
 
 }); //Fin del doc ready
