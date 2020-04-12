@@ -5,40 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="Estilos/styles.css">
-
-    <script src="Scripts/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="Scripts/busqueda.js"></script>
-    <script src="popper/popper.min.js"></script>
-    <title>Inicio</title>
+    <link rel="stylesheet" href="Estilos/login.css">
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
-        <br>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Biblioteca</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="index.php">Inicio<span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link active" href="registro_libro.php">Registro Libro</a>
-                        <a class="nav-item nav-link active" href="inventario.php">Inventario</a>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="">
+                            <h3 class="text-center text-info">Inicio Sesion</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Usuario:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group button">
+                                <input type="submit" name="submit" class="btn btn-info btn-lg" value="Iniciar sesion">
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </nav>
-        </header>
-    </div>
-    <section>
-        <div class="container">
-            <img src="Images/libros.jpg" alt="">
+            </div>
         </div>
-    </section>
-    <footer></footer>
+    </div>
 </body>
 
 </html>
