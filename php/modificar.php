@@ -14,10 +14,10 @@ if (isset($_POST['codigo']) && ($_POST['nombre_libro'] != "")) {
     $cantidad = $_POST['cantidad'];
 
     $modificar = ("UPDATE libros SET  CODIGO_LIBRO='" . $codigo_new . "', AUTOR='" . $autor . "',
-    NOMBRE_LIBRO='" . $nombre_libro . "',FECHA_EXPEDICION=('" . $fecha_expedicion . "'),
-    DISPONIBILIDAD=('" . $disponibilidad . "'),PRECIO_PUBLICO=('" . $precio_publico . "'),
-    PRECIO_INTERNO=('" . $precio_interno . "'),RESERVADO=('" . $reservado . "'),
-    CANTIDAD=('" . $cantidad . "') WHERE CODIGO_LIBRO='" . $codigo_old . "'");
+    NOMBRE_LIBRO='" . $nombre_libro . "',FECHA_EXPEDICION='" . $fecha_expedicion . "',
+    DISPONIBILIDAD='" . $disponibilidad . "',PRECIO_PUBLICO='" . $precio_publico . "',
+    PRECIO_INTERNO='" . $precio_interno . "',RESERVADO='" . $reservado . "',
+    CANTIDAD='" . $cantidad . "' WHERE CODIGO_LIBRO='" . $codigo_old . "'");
 
     $consulta = mysqli_query($connection, $modificar, $resultmode = MYSQLI_STORE_RESULT);
     mysqli_select_db($connection,$database);
