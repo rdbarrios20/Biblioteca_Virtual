@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="Estilos/styles.css">
+    <link rel="stylesheet" href="fonts/style.css">
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -53,14 +54,14 @@
                 var opcion = confirm('Realmente desea modificar el registro');
                 if (parseInt($('#precio_publico').val()) <= parseInt($('#precio_interno').val())) {
                     alert('El precio publico no puede ser menor al precio interno verifique los datos');
-                } else if (parseInt($('#precio_publico').val()) > 1000000) {//Validamos que no se exceda el precio en ambos valores publico e interno
+                } else if (parseInt($('#precio_publico').val()) > 1000000) { //Validamos que no se exceda el precio en ambos valores publico e interno
                     alert("Esta excediendo el precio que es de 1.000.000");
                 } else if ((parseInt($('#precio_interno').val()) > 1000000)) {
                     alert("Esta excediendo el precio que es de 1.000.000");
                 } else if (opcion == true) {
 
-                    let cViejo =  $('#codigo_old').val();
-                    let cNuevo =  $('#codigo').val();
+                    let cViejo = $('#codigo_old').val();
+                    let cNuevo = $('#codigo').val();
 
                     $.ajax({
                         url: 'php/modificar.php',
@@ -83,32 +84,32 @@
                             if (response.success == true) {
 
                                 //Actualizar html de la fila con los nuevos registros
-                                var htmlTRow = "<td>" + cNuevo + "</td>"
-                                    + "<td>" +  $('#autor').val() + "</td>"
-                                    + "<td>" +  $('#nombre_libro').val()  + "</td>"
-                                    + "<td>" +  $('#fecha_expedicion').val() + "</td>"
-                                    + "<td>" + $('#disponibilidad').val()+ "</td>"
-                                    + "<td>" + '$' + $('#precio_publico').val() + "</td>"
-                                    + "<td>" + '$ ' + $('#precio_interno').val() + "</td>"
-                                    + "<td>" + $('#reservado').val()+ "</td>"
-                                    + "<td>" + $('#cantidad').val() + "</td>"
-                                    + "<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" + cNuevo + "'>Borrar</button></td>"
-                                    + "<td> <button id='btn_modificar' class='btn btn-warning clsModificar' data-codigo='"+ cNuevo +"' data-toggle='modal' data-target='#myModal'>Editar</button></td>"
-                                    + "</tr>";
-                                    
-                                    //Limpiar el registro
-                                    $('#idLibroTr_'+ cViejo).html('');
-                                    //Agregar al html del registro
-                                    $('#idLibroTr_'+ cViejo).append(htmlTRow)
+                                var htmlTRow = "<td>" + cNuevo + "</td>" +
+                                    "<td>" + $('#autor').val() + "</td>" +
+                                    "<td>" + $('#nombre_libro').val() + "</td>" +
+                                    "<td>" + $('#fecha_expedicion').val() + "</td>" +
+                                    "<td>" + $('#disponibilidad').val() + "</td>" +
+                                    "<td>" + $('#precio_publico').val() + "</td>" +
+                                    "<td>" + $('#precio_interno').val() + "</td>" +
+                                    "<td>" + $('#reservado').val() + "</td>" +
+                                    "<td>" + $('#cantidad').val() + "</td>" +
+                                    "<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" + cNuevo + "'>Borrar</button></td>" +
+                                    "<td> <button id='btn_modificar' class='btn btn-warning clsModificar' data-codigo='" + cNuevo + "' data-toggle='modal' data-target='#myModal'>Editar</button></td>" +
+                                    "</tr>";
 
-                                    // Reemplazo del id con codigo viejo por codigo nuevo en el atributo id 
-                                    let nuevo_id = 'idLibroTr_'+ cNuevo;
-                                    $('#idLibroTr_'+ cViejo).attr('id', nuevo_id);
-                                    //ACtulizar los valores que tenieamos en nuestro modal, tanto el visible como el oculto, tanto el vis
-                                    $('#codigo').attr('value', cNuevo);
-                                    $('#codigo_old').attr('value', cNuevo);
+                                //Limpiar el registro
+                                $('#idLibroTr_' + cViejo).html('');
+                                //Agregar al html del registro
+                                $('#idLibroTr_' + cViejo).append(htmlTRow)
 
-                                    alert(response.message);
+                                // Reemplazo del id con codigo viejo por codigo nuevo en el atributo id 
+                                let nuevo_id = 'idLibroTr_' + cNuevo;
+                                $('#idLibroTr_' + cViejo).attr('id', nuevo_id);
+                                //ACtulizar los valores que tenieamos en nuestro modal, tanto el visible como el oculto, tanto el vis
+                                $('#codigo').attr('value', cNuevo);
+                                $('#codigo_old').attr('value', cNuevo);
+                                $('#myInput').trigger('focus')
+                                //alert(response.message);
                             }
                         },
                         error: function(response) {
@@ -208,6 +209,27 @@
                             <div class="modal-footer">
                                 <button type="submit" id="modificar" class="btn btn-success" data-dismiss="modal">Modificar</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal para los mensajes success -->
+                <div class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>
