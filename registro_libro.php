@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="Estilos/styles.css">
+    <link rel="stylesheet" href="fonts/style.css">
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -16,25 +17,25 @@
         //validamos los campos que no esten vacios usamos length para verificar si hay algun caracter escrito en nuestro campo de texto si es menor a 1 entonces 
         //es falso y por lo tanto el campo es vacio
         $(document).ready(function() {
-             $('#btenviar').click(function() {
-                 if ($("#codigo").val().length < 1) {
-                     alert("El campo codigo no puede ser vacio")
-                     return false;
-                 } else if ($("#autor").val().length < 1) {
-                     alert("El campo Autor no puede ser vacio")
-                     return false;
-                 } else if ($("#nombre_libro").val().length < 1) {
-                     alert("El campo Nombre del libro no puede ser vacio")
-                     return false;
-                 } else if ($("#precio_publico").val().length < 1) {
-                     alert("El campo Precio publico no puede ser vacio")
-                     return false;
-                 } else if ($("#precio_interno").val().length < 1) {
-                     alert("El campo Precio interno  no puede ser vacio")
-                     return false;
-                 }
-             });
-         });
+            $('#btenviar').click(function() {
+                if ($("#codigo").val().length < 1) {
+                    alert("El campo codigo no puede ser vacio")
+                    return false;
+                } else if ($("#autor").val().length < 1) {
+                    alert("El campo Autor no puede ser vacio")
+                    return false;
+                } else if ($("#nombre_libro").val().length < 1) {
+                    alert("El campo Nombre del libro no puede ser vacio")
+                    return false;
+                } else if ($("#precio_publico").val().length < 1) {
+                    alert("El campo Precio publico no puede ser vacio")
+                    return false;
+                } else if ($("#precio_interno").val().length < 1) {
+                    alert("El campo Precio interno  no puede ser vacio")
+                    return false;
+                }
+            });
+        });
 
         //validamos los campos que solo deban contener numeros usamos keyup para cuando se presiona una tecla se valide tanto para solo numeros o solo letras
         $(document).ready(function() {
@@ -58,8 +59,10 @@
             $("#formulario").on('submit', function(event) {
                 debugger;
                 if (parseInt($('#precio_publico').val()) <= parseInt($('#precio_interno').val())) {
-                    alert('El precio publico no puede ser menor al precio interno verifique los datos');
-                } else if (parseInt($('#precio_publico').val()) > 1000000) {//Validamos que no se exceda el precio en ambos valores publico e interno
+                    MENSAJE = "El precio publico no puede ser menor al precio interno verifique los datos";
+                    $("#cost").html(MENSAJE);
+                    $("#cost_message").modal('show');
+                } else if (parseInt($('#precio_publico').val()) > 1000000) { //Validamos que no se exceda el precio en ambos valores publico e interno
                     alert("Esta excediendo el precio que es de 1.000.000");
                 } else if ((parseInt($('#precio_interno').val()) > 1000000)) {
                     alert("Esta excediendo el precio que es de 1.000.000");
@@ -83,7 +86,9 @@
                         //Traemos la respuesta de retorno en caso de que los datos se guarden correctamente en formato json
                         success: function(response) {
                             if (response.success == true) {
-                                alert(response.message);
+                                MENSAJE = response.message;
+                                $("#message").html(MENSAJE);
+                                $("#success_message").modal('show');
                                 //Invocar funcion limpiar
                                 limpiar();
                             }
@@ -110,6 +115,7 @@
                     $('#reservado').val('');
                     $('#cantidad').val('');
                 }
+
             });
         });
     </script>
@@ -182,6 +188,48 @@
                     <input type="submit" id="btenviar" class="btn btn-lg btn-success" value="Guardar">
                 </div>
             </form>
+        </div>
+
+        <!--Modal para el mensaje de datos guardados satisfactoriamente -->
+        <div>
+            <div class="modal" tabindex="-1" role="dialog" id="success_message">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Mensaje Datos Guardados</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="message"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para el validar los precios-->
+        <div class="modal" tabindex="-1" role="dialog" id="Cost_message">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Validacion Precios</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="Cost"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <footer></footer>
