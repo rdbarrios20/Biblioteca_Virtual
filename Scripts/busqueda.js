@@ -50,8 +50,8 @@ $(document).ready(function () {
                 + "<td class='clsPrecioI'>" + '$ ' + item['PRECIO_INTERNO'] + "</td>"
                 + "<td class='clsReservado'>" + item['RESERVADO'] + "</td>"
                 + "<td class='clsCantidad'>" + item['CANTIDAD'] + "</td>"
-                + "<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" + codigo + "'>Borrar</button></td>"
-                + "<td> <button id='btn_modificar' class='btn btn-warning clsmodificar' data-codigo='" + codigo + "' data-toggle='modal' data-target='#myModal'>Editar</button></td>"
+                + "<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" + codigo + "'><span class='icon-trash'></span></button></td>"
+                + "<td> <button id='btn_modificar' class='btn btn-warning clsmodificar' data-codigo='" + codigo + "' data-toggle='modal' data-target='#myModal'><span class='icon-pencil'></span></button></td>"
 
             //Agregar al html de la tabla
             $('#tableBody').append(htmlTRow)
@@ -112,8 +112,8 @@ $(document).ready(function () {
         let nombre = $('#idLibroTr_'+ codigo_viejo + ' > .clsNombreL').text();    
         let fecha_expedicion = $('#idLibroTr_'+ codigo_viejo + ' > .clsFechaEp').text();    
         let disponibilidad = $('#idLibroTr_'+ codigo_viejo + ' > .clsDisp').text();    
-        let precio_publico = $('#idLibroTr_'+ codigo_viejo + ' > .clsPrecioP').text();    
-        let precio_interno = $('#idLibroTr_'+ codigo_viejo + ' > .clsPrecioI').text();    
+        var precio_publico = $('#idLibroTr_'+ codigo_viejo + ' > .clsPrecioP').text();    
+        var precio_interno = $('#idLibroTr_'+ codigo_viejo + ' > .clsPrecioI').text();    
         let reservado = $('#idLibroTr_'+ codigo_viejo + ' > .clsReservado').text();    
         let cantidad = $('#idLibroTr_'+ codigo_viejo + ' > .clsCantidad').text();    
 
