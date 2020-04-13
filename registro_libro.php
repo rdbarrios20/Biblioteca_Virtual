@@ -14,29 +14,6 @@
     <script src="popper/popper.min.js"></script>
 
     <script type="text/javascript">
-        //validamos los campos que no esten vacios usamos length para verificar si hay algun caracter escrito en nuestro campo de texto si es menor a 1 entonces 
-        //es falso y por lo tanto el campo es vacio
-        $(document).ready(function() {
-            $('#btenviar').click(function() {
-                if ($("#codigo").val().length < 1) {
-                    alert("El campo codigo no puede ser vacio")
-                    return false;
-                } else if ($("#autor").val().length < 1) {
-                    alert("El campo Autor no puede ser vacio")
-                    return false;
-                } else if ($("#nombre_libro").val().length < 1) {
-                    alert("El campo Nombre del libro no puede ser vacio")
-                    return false;
-                } else if ($("#precio_publico").val().length < 1) {
-                    alert("El campo Precio publico no puede ser vacio")
-                    return false;
-                } else if ($("#precio_interno").val().length < 1) {
-                    alert("El campo Precio interno  no puede ser vacio")
-                    return false;
-                }
-            });
-        });
-
         //validamos los campos que solo deban contener numeros usamos keyup para cuando se presiona una tecla se valide tanto para solo numeros o solo letras
         $(document).ready(function() {
             $("#codigo").keyup(function() {
@@ -146,15 +123,15 @@
             <form class="background" id="formulario">
                 <div class="form-group error">
                     <label for="">Código</label>
-                    <input type="text" name="codigo" id="codigo" class="form-control">
+                    <input type="text" name="codigo" id="codigo" class="form-control" required>
                 </div>
                 <div class="form-group error">
                     <label for="">Autor</label>
-                    <input type="text" name="autor" id="autor" class="form-control">
+                    <input type="text" name="autor" id="autor" class="form-control" required>
                 </div>
                 <div class="form-group error">
                     <label for="">Nombre del libro</label>
-                    <input type="text" name="nombre_libro" id="nombre_libro" class="form-control">
+                    <input type="text" name="nombre_libro" id="nombre_libro" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="">Fecha de Expedición</label>
@@ -169,11 +146,11 @@
                 </div>
                 <div class="form-group error">
                     <label for="">Precio Publico</label>
-                    <input type="text" name="precio_publico" id="precio_publico" class="form-control" placeholder="$">
+                    <input type="text" name="precio_publico" id="precio_publico" class="form-control" placeholder="$" required>
                 </div>
                 <div class="form-group error">
                     <label for="">Precio Interno</label>
-                    <input type="text" name="precio_interno" id="precio_interno" class="form-control" placeholder="$">
+                    <input type="text" name="precio_interno" id="precio_interno" class="form-control" placeholder="$" required>
                 </div>
                 <div class="form-group">
                     <label for="">Reservado</label>
@@ -181,7 +158,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Cantidad</label>
-                    <input type="text" name="cantidad" id="cantidad" class="form-control">
+                    <input type="text" name="cantidad" id="cantidad" class="form-control" required>
                 </div>
                 <br>
                 <div class="form-group cold-md3">
