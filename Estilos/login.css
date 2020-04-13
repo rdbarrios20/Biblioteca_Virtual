@@ -1,20 +1,25 @@
+html,
 body {
     margin: 0;
     padding: 0;
     background-image: url(../Images/biblioteca.jpg);
     height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
 }
 
 #login .container #login-row #login-column #login-box {
-    margin-top: 150px;
     max-width: 600px;
-    height: 320px;
+    height: 270px;
     border: 1px solid #9C9C9C;
-    background-color: #EAEAEA;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 #login .container #login-row #login-column #login-box #login-form {
     padding: 20px;
+    color: black;
 }
 
 #login .container #login-row #login-column #login-box #login-form #register-link {
@@ -25,6 +30,38 @@ body {
     text-align: center;
 }
 
-.banner-login {
+.banner-top {
     background-color: rgb(66, 65, 65);
+    color: white;
+    margin-top: 150px;
+}
+
+.banner-top h3 {
+    text-align: center;
+    padding-top:  10px;
+}
+
+.container #login-box {
+    background-color: rgba(246, 248, 248,20) !important;
+}
+
+.container #login-form label {
+    color: black;
+}
+
+.input-group-prepend span {
+    width: 40px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember {
+    color: white;
 }
