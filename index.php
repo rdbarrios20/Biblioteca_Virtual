@@ -10,8 +10,7 @@
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="Scripts/busqueda.js"></script>
-    <script src="popper/popper.min.js"></script>
+    <script src="Scripts/login.js"></script>
 
     <title>Login</title>
 </head>
@@ -32,7 +31,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text icon-users"></span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="Usuario" required>
+                                            <input type="text" id="usser" class="form-control" placeholder="Usuario" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -41,7 +40,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text icon-key"></span>
                                             </div>
-                                            <input type="password" class="form-control" placeholder="****************" required> 
+                                            <input type="password" id="pasword" class="form-control" placeholder="****************" required> 
                                         </div>
                                     </div>
                                     <div class="form-group button">
