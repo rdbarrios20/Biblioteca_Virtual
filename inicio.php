@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usuario'])) {
+    if ($_SESSION['usuario']['tipo_usuario'] != "") {
+    }
+} else {
+    header('location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,8 +26,7 @@
 </head>
 
 <body>
-    <div class="container">
-        <br>
+    <div>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Biblioteca</a>
@@ -28,15 +38,20 @@
                         <a class="nav-item nav-link active" href="inicio.php">Inicio<span class="sr-only">(current)</span></a>
                         <a class="nav-item nav-link active" href="registro_libro.php">Registro Libro</a>
                         <a class="nav-item nav-link active" href="inventario.php">Inventario</a>
-                        <a class="nav-item nav-link active" href="index.php">Salir</a>
+                        <a class="nav-item nav-link active" href="salir.php">Salir</a>
                     </div>
                 </div>
             </nav>
         </header>
     </div>
     <section>
+        <br>
         <div class="container">
+            <h1>Biblioteca Virtual</h1>
             <img src="Images/libros.jpg" alt="">
+        </div>
+        <div class="container">
+            <h4> Bienvenido: <?php echo $_SESSION['usuario']['nombre_apellido'] ?></h4>
         </div>
     </section>
     <footer></footer>
