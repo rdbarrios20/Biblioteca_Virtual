@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+body{
+    background-image: url(../Images/biblioteca.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
 .section {
     width: 60%;
     height: 400px;
@@ -61,4 +70,16 @@ tbody tr:hover{
 .modal-registro h4{
     padding: 12px;
     text-align: center;
+}
+
+.container h1{
+    text-align: center;
+    background-color: rgb(66, 65, 65);
+    margin-bottom: 0;
+    color: white;
+}
+.container h4{
+    background-color: rgb(66, 65, 65);
+    margin-bottom: 0;
+    color: white;
 }
