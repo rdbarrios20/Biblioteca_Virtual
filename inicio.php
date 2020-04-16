@@ -47,11 +47,11 @@ if (isset($_SESSION['usuario'])) {
     <section>
         <br>
         <div class="container">
-            <h1>Biblioteca Virtual</h1>
+            <h1 class="bg-dark">Biblioteca Virtual</h1>
             <img src="Images/libros.jpg" alt="">
         </div>
         <div class="container">
-            <h4> Bienvenido: <?php echo $_SESSION['usuario']['nombre_apellido'] ?></h4>
+            <h4 class="bg-dark"> Bienvenido: <?php echo $_SESSION['usuario']['nombre_apellido'] ?></h4>
         </div>
     </section>
     <footer></footer>
