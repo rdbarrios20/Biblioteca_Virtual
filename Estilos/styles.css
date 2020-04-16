@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-image: url(../Images/biblioteca.jpg);
     height: 100vh;
     background-size: cover;
@@ -25,61 +25,66 @@ body{
     height: 500px;
 }
 
-.background{
+.background {
     background-color: #EEF1F1;
 }
-.container form{
+
+.container form {
     padding: 12px;
 }
 
-.container table{
+.container table {
     padding: 15px;
 }
 
-table thead{
+table thead {
     background-color: rgb(66, 65, 65);
     color: #EEF1F1;
     text-align: center;
 }
-li a{
+
+li a {
     font-size: 10px;
 }
 
-.contenedor{
+.contenedor {
     overflow-x: auto;
 }
 
-tbody tr:hover{
+tbody tr:hover {
     background-color: rgb(255, 255, 255);
 }
 
-#cantidad{
+#cantidad {
     width: 60px;
 }
 
-.busqueda{
+.busqueda {
     margin-left: 15px;
 }
 
-.modal-registro{
+.modal-registro {
     background-color: rgb(66, 65, 65);
     height: 50px;
     color: white;
 }
 
-.modal-registro h4{
+.modal-registro h4 {
     padding: 12px;
     text-align: center;
 }
 
-.container h1{
+.container h1 {
     text-align: center;
     background-color: rgb(66, 65, 65);
     margin-bottom: 0;
     color: white;
+    padding: 5px;
 }
-.container h4{
+
+.container h4 {
     background-color: rgb(66, 65, 65);
     margin-bottom: 0;
     color: white;
+    padding: 8px;
 }
