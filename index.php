@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <div class="error">
+        <span>Los datos ingresados son errados por favor verifique nuevamente</span>
+    </div>
     <div>
         <div id="login">
             <div class="container">
@@ -31,7 +34,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text icon-users"></span>
                                             </div>
-                                            <input type="text" id="usser" class="form-control" placeholder="Usuario" required>
+                                            <input type="text" name="user" class="form-control" placeholder="Usuario" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -40,11 +43,11 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text icon-key"></span>
                                             </div>
-                                            <input type="password" id="pasword" class="form-control" placeholder="****************" required> 
+                                            <input type="password" name="pasword" class="form-control" placeholder="****************" required> 
                                         </div>
                                     </div>
                                     <div class="form-group button">
-                                        <input type="submit" name="submit" class="btn btn-info btn-lg" value="Iniciar sesion">
+                                        <input type="submit" name="submit" class="btn btn-info btn-lg login" value="Iniciar Sesión">
                                     </div>
                                 </form>
                             </div>
