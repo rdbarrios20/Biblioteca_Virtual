@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['usuario'])) {
+    if ($_SESSION['usuario']['tipo_usuario'] == "Administrador") {
+        header('location: inicio.php');
+    } else {
+        header('location: index.php');
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +44,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text icon-users"></span>
                                             </div>
-                                            <input type="text" name="user" class="form-control" placeholder="Usuario" required>
+                                            <input type="text" name="user" pattern="[A-Za-z0-9_-]{1,15}" class="form-control" placeholder="Usuario" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -43,7 +53,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text icon-key"></span>
                                             </div>
-                                            <input type="password" name="pasword" class="form-control" placeholder="****************" required> 
+                                            <input type="password" name="pasword" pattern="[A-Za-z0-9]{1,15}" class="form-control" placeholder="****************" required>
                                         </div>
                                     </div>
                                     <div class="form-group button">
