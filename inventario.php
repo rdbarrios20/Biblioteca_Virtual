@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usuario'])) {
+    if ($_SESSION['usuario']['tipo_usuario'] != "Administrador") {
+        header('location: index.php');
+    }
+} else {
+    header('location: inventario.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
