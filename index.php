@@ -17,12 +17,19 @@ if (isset($_SESSION['usuario'])) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="Estilos/login.css">
     <link rel="stylesheet" href="fonts/style.css">
+    <link rel="stylesheet" href="Estilos/loader.css">
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="Scripts/login.js"></script>
 
     <title>Login</title>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.loading2').fadeOut(1000).html();
+        });
+    </script>
 </head>
 
 <body>
@@ -30,7 +37,6 @@ if (isset($_SESSION['usuario'])) {
         <span>Los datos ingresados son errados por favor verifique nuevamente</span>
     </div>
     <div class="loading2">
-        <img src="Images/large-ajax-loader.gif" alt="Validando">
     </div>
     <div>
         <div id="login">
