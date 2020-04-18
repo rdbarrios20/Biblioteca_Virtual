@@ -4,7 +4,7 @@
         //Requerimos el archivo que contine la connexion asi que lo llamamos
         require_once("../php/databaseConnection.php");
         //Sleep nos permite retardar el acceso de la validacion unos segundos para hacerlo mas modal 
-        sleep(1);
+        sleep(2);
 
         session_start();
 
