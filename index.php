@@ -29,6 +29,9 @@ if (isset($_SESSION['usuario'])) {
     <div class="error">
         <span>Los datos ingresados son errados por favor verifique nuevamente</span>
     </div>
+    <div class="loading2">
+        <img src="Images/large-ajax-loader.gif" alt="Validando">
+    </div>
     <div>
         <div id="login">
             <div class="container">
@@ -57,7 +60,9 @@ if (isset($_SESSION['usuario'])) {
                                         </div>
                                     </div>
                                     <div class="form-group button">
-                                        <input type="submit" name="submit" class="btn btn-info btn-lg login" value="Iniciar Sesión">
+                                        <input type="submit" name="submit" class="btn btn-info btn-lg" value="Iniciar Sesión">
+                                        <div class="loading-gear">
+                                        </div>
                                     </div>
                                 </form>
                             </div>
