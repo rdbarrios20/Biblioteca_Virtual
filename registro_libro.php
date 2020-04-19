@@ -18,6 +18,7 @@ if (isset($_SESSION['usuario'])) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="Estilos/styles.css">
     <link rel="stylesheet" href="fonts/style.css">
+    <link rel="stylesheet" href="Estilos/loader.css">
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -27,6 +28,7 @@ if (isset($_SESSION['usuario'])) {
     <script type="text/javascript">
         //validamos los campos que solo deban contener numeros usamos keyup para cuando se presiona una tecla se valide tanto para solo numeros o solo letras
         $(document).ready(function() {
+            $('.loading2').fadeOut(1000).html();
             $("#codigo").keyup(function() {
                 this.value = (this.value + '').replace(/[^0-9]/g, '');
             });
@@ -111,7 +113,7 @@ if (isset($_SESSION['usuario'])) {
 
 <body>
     <div class="container">
-        <br>
+        <div class="loading2"></div>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Navbar</a>
