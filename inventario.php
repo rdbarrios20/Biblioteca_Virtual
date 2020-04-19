@@ -156,7 +156,6 @@ if (isset($_SESSION['usuario'])) {
             </nav>
         </header>
         <br>
-        <br>
     </div>
     <section>
         <div>
