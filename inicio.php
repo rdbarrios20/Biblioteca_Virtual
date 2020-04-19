@@ -17,15 +17,23 @@ if (isset($_SESSION['usuario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="Estilos/styles.css">
+    <link rel="stylesheet" href="Estilos/loader.css">
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="Scripts/busqueda.js"></script>
     <script src="popper/popper.min.js"></script>
     <title>Inicio</title>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.loading2').fadeOut(2000).html();
+        });
+    </script>
 </head>
 
 <body>
+    <div class="loading2"></div>
     <div>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
