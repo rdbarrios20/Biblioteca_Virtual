@@ -105,8 +105,8 @@ if (isset($_SESSION['usuario'])) {
                                     "<td>" + $('#precio_interno').val() + "</td>" +
                                     "<td>" + $('#reservado').val() + "</td>" +
                                     "<td>" + $('#cantidad').val() + "</td>" +
-                                    "<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" + cNuevo + "'>Borrar</button></td>" +
-                                    "<td> <button id='btn_modificar' class='btn btn-warning clsModificar' data-codigo='" + cNuevo + "' data-toggle='modal' data-target='#myModal'>Editar</button></td>" +
+                                    "<td> <button id='btn_eliminar' class='btn btn-danger clsEliminar' data-codigo='" + cNuevo + "'><span class='icon-trash'></span></button></td>" +
+                                    "<td> <button id='btn_modificar' class='btn btn-warning clsModificar' data-codigo='" + cNuevo + "' data-toggle='modal' data-target='#myModal'><span class='icon-pencil'></span></button></td>" +
                                     "</tr>";
 
                                 //Limpiar el registro
