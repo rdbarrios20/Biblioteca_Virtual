@@ -82,9 +82,30 @@ tbody tr:hover {
     padding: 5px;
 }
 
-.container h4 {
+.container h5 {
     background-color: rgb(66, 65, 65);
     margin-bottom: 0;
     color: white;
-    padding: 8px;
+    float: right;
+}
+
+.modal-content p{
+    text-align: center;
+}
+
+.modal-title{
+    text-align: center;
+}
+
+h5 span{
+    font-size: 45px;
+    margin-left: 12px;
+    color: darkgoldenrod;
+}
+
+.modal-body p{
+    font-size: 20px;
+}
+.modal-title{
+    text-align: center !important;
 }
