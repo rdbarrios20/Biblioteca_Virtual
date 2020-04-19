@@ -74,18 +74,3 @@ input:focus {
     background-color: brown;
     color: white;
 }
-
-.loading{
-    color: cornflowerblue;
-}
-
-.loading img{
-    text-align: center;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(246, 248, 248, 20) !important;
-}
-
-.loading2{
-    display: none;
-}
