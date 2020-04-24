@@ -2,6 +2,7 @@
   require_once('../php/databaseConnection.php');
   $connection->set_charset('utf8');
 
+  date_default_timezone_set('America/Bogota');
   $rol="Administrador";
   $id_user="1";
   $accion="modificacion";
