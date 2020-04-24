@@ -6,7 +6,7 @@ if (isset($_SESSION['usuario'])) {
         header('location: index.php');
     }
 } else {
-    header('location: registro_libro.php');
+    header('location: index.php');
 }
 ?>
 <!DOCTYPE html>
