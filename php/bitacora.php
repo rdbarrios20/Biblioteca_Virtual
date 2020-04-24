@@ -5,13 +5,13 @@
   $rol="Administrador";
   $id_user="1";
   $accion="modificacion";
-  $fecha="2020/03/22";
-  $detalles="Se modifico el registro 2089 las aventuras de felipe";
+  $fecha=date('y-m-d H:i:s'); 
+  $detalle="Se modifico el registro 2089 las aventuras de felipe";
 
-  
   $query=$connection->prepare("INSERT INTO bitacora (rol,id_usuario,accion,fecha,detalle) VALUES
   ('".$rol."','".$id_user."','".$accion."','".$fecha."','".$detalle."')");
-
   
+  $query->execute();
 
+  $connection->close();
 ?>
