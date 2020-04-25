@@ -1,4 +1,6 @@
  <?php
+
+    require_once('../prueba.php'); #referencia
     //Realizamos una peticion ajax 
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
         //Requerimos el archivo que contine la connexion asi que lo llamamos
@@ -26,6 +28,7 @@
             if ($result->num_rows == 1) {
                 $datos = $result->fetch_assoc();
                 $_SESSION['usuario'] = $datos;
+                
                 echo json_encode(array('validation' => false, 'tipo' => $datos['tipo_usuario']));
             } else {
                 $message = "Usuario o Contraseña errados";
@@ -35,6 +38,16 @@
             $new_query->close();
         }
     }
+
+
+
+     //Llamar funtionr externa
+     $v2 = 10;
+     $r =    sumar(20,$v2)   ;
+     die(var_dump('EL resultado de la suma es ' . $r  ));
+
+
+
     //Cerramos todas las conexiones
     $connection->close();
     ?>
