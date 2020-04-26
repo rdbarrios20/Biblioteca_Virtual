@@ -1,22 +1,20 @@
 <?php
-    //funcion para insertar datos a la tabla bitacora.
-    function insert_bitacora(){
-        require_once('php\databaseConnection.php');
-        $connection->set_charset('utf8');
-      
+    //funcion para insertar datos a la tabla bitac4ora.
+    require_once("databaseConnection.php");
+
+    //include 'databaseConnection.php';
+    
+    function insert_bitacora($id_usuario,$rol,$accion,$detalle){
+        
+        $_connection = abrirCon();
         date_default_timezone_set('America/Bogota');
-        // $rol="Administrador";
-        // $id_user="1";
-        // $accion="modificacion";
-         $fecha_creacion=date('y-m-d H:i:s'); 
-        // $detalle="Se modifico el registro 2089 las aventuras de felipe";
-      
-        $query=$connection->prepare("INSERT INTO bitacora (rol,id_usuario,accion,fecha_creacion,detalle) VALUES
-        ('".$rol."','".$id_user."','".$accion."','".$fecha_creacion."','".$detalle."')");
+        $fecha_creacion=date('y-m-d H:i:s');
+        $query=$_connection->prepare("INSERT INTO bitacora (rol,id_usuario,accion,fecha,detalle) VALUES
+        ('".$rol."','".$id_usuario."','".$accion."','".$fecha_creacion."','".$detalle."')");
         
         $query->execute();
       
-        $connection->close();
+        cerrarCon($_connection);
     }
     
  
