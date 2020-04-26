@@ -1,14 +1,23 @@
 <?php
 
-$server="localhost";
-$user="root";
-$password="";
-$database="biblioteca";
+    function abrirCon(){
+        $server="localhost";
+        $user="root";
+        $password="";
+        $database="biblioteca";
+        
+        $connection =mysqli_connect($server,$user,$password,$database);
+        
+        if($connection==false){
+            die('No se pudo hacer la conexion');
+        }
 
-$connection =mysqli_connect($server,$user,$password,$database);
+        return $connection;
+    }
 
-if($connection==false){
-    die('No se pudo hacer la conexion');
-}
+    function cerrarCon($c){
+        $c->close();
+    }
+
 
 ?>
