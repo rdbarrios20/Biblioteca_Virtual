@@ -1,6 +1,6 @@
 <?php
     //funcion para insertar datos a la tabla bitac4ora.
-    require_once("databaseConnection.php");
+    require("databaseConnection.php");
 
     //include 'databaseConnection.php';
     
