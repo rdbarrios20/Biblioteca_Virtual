@@ -94,7 +94,7 @@ if (isset($_SESSION['usuario'])) {
                         //Traemos la respuesta de retorno en caso de que los datos se modifiquen correctamente en formato json
                         success: function(response) {
                             if (response.success == true) {
-
+                                alert(response.message);
                                 //Actualizar html de la fila con los nuevos registros
                                 var htmlTRow = "<td>" + cNuevo + "</td>" +
                                     "<td>" + $('#autor').val() + "</td>" +
