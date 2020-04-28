@@ -1,10 +1,11 @@
  <?php
 
-    require_once('../prueba.php'); #referencia
+    include("bitacora.php"); #referencia
     //Realizamos una peticion ajax 
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
         //Requerimos el archivo que contine la connexion asi que lo llamamos
-        require_once("../php/databaseConnection.php");
+        require_once("databaseConnection.php");
+        $connection = OpenCon();
         //Sleep nos permite retardar el acceso de la validacion unos segundos para hacerlo mas modal 
         sleep(2);
 
@@ -17,7 +18,7 @@
         $pass = $connection->real_escape_string($_POST['pasword']);
 
         //Creamos una variable que llamaremos nueva consulta y esta asu vez le enviamos parametros por bind_param y en la consulta cambiamos las variables por ?
-        if ($new_query = $connection->prepare("SELECT nombre_apellido,tipo_usuario FROM usuarios WHERE usuario =? AND pasword=?")) {
+        if ($new_query = $connection->prepare("SELECT id_usuario,nombre_apellido,tipo_usuario FROM usuarios WHERE usuario =? AND pasword=?")) {
             //new_query tiene por parametro dos ss por que ambas variables son de tipo string
             $new_query->bind_param('ss', $usser, $pass);
             //Ejecutamos la consulta
@@ -28,7 +29,13 @@
             if ($result->num_rows == 1) {
                 $datos = $result->fetch_assoc();
                 $_SESSION['usuario'] = $datos;
-                
+
+                $rol=$_SESSION['usuario']['tipo_usuario'];
+                $id_usuario=$_SESSION['usuario']['id_usuario'];
+                $accion="Inicio Sesión";
+                $detalle="Inicio Sesión";
+                insert_bitacora($rol,$id_usuario,$accion,$detalle);
+
                 echo json_encode(array('validation' => false, 'tipo' => $datos['tipo_usuario']));
             } else {
                 $message = "Usuario o Contraseña errados";
@@ -39,15 +46,5 @@
         }
     }
 
-
-
-     //Llamar funtionr externa
-     $v2 = 10;
-     $r =    sumar(20,$v2)   ;
-     die(var_dump('EL resultado de la suma es ' . $r  ));
-
-
-
-    //Cerramos todas las conexiones
-    $connection->close();
+    CloseCon($connection);
     ?>
