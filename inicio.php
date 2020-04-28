@@ -52,6 +52,7 @@ if (isset($_SESSION['usuario'])) {
                         <a class="nav-item nav-link active" href="registro_libro.php">Registro Libro</a>
                         <a class="nav-item nav-link active" href="inventario.php">Inventario</a>
                         <a class="nav-item nav-link active" data-toggle='modal' data-target='#close_page' href="">Salir</a>
+                        <a class="nav-item nav-link active" href="" >Bitacora</a>
                     </div>
                 </div>
             </nav>
