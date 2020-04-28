@@ -54,7 +54,7 @@ if (isset($_SESSION['usuario'])) {
                                                 <span class="input-group-text icon-users"></span>
                                             </div>
                                             <input type="text" name="user" pattern="[A-Za-z0-9_-]{1,15}" 
-                                            class="form-control" placeholder="Usuario" required>
+                                            class="form-control" placeholder="Usuario" value="Rafael" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -64,7 +64,7 @@ if (isset($_SESSION['usuario'])) {
                                                 <span class="input-group-text icon-key"></span>
                                             </div>
                                             <input type="password" name="pasword" pattern="[A-Za-z0-9]{1,15}" class="form-control"
-                                             placeholder="****************" required>
+                                             placeholder="****************" value="1065632580" required>
                                         </div>
                                     </div>
                                     <div class="form-group button">
