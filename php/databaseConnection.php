@@ -1,6 +1,6 @@
 <?php
 
-    function abrirCon(){
+    function OpenCon(){
         $server="localhost";
         $user="root";
         $password="";
@@ -15,8 +15,8 @@
         return $connection;
     }
 
-    function cerrarCon($c){
-        $c->close();
+    function CloseCon($CloseCon){
+        $CloseCon->close();
     }
 
 ?>
