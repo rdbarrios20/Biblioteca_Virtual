@@ -19,7 +19,7 @@
     
     //Funcion para leer los datos ubicados en la tabla bitacora.
     function read_bitacora(){
-        require_once('php\databaseConnection.php');
+        $connection = OpenCon();
         $connection->set_charset('utf8');
     
         $query=$connection->prepare("SELECT * FROM bitacora ORDER BY id");
