@@ -1,21 +1,20 @@
 
 <?php
-    include 'databaseConnection';
-    require_once('bitacora.php');
+    include("bitacora.php");
+    require_once("databaseConnection.php");
+    $connection = OpenCon();
+    $ide=$_POST['ide_libro'];
 
-    $id_rol= $_SESSION['id_usuario'];
-    $rol=$_SESSION['tipo_usuario'];
-    $accion="Eliminacion";
-    $ide=$_POST['id_libro'];
+    session_start();
+    $rol=$_SESSION['usuario']['tipo_usuario'];
+    $id_usuario=$_SESSION['usuario']['id_usuario'];
+    $accion="Eliminación";
+    $detalle="Eliminación libro código:'".$ide."'";
+    insert_bitacora($rol,$id_usuario,$accion,$detalle);
 
-    $detalle="Eliminacion libro codigo:'".$ide."'";
-
-    insert_bitacora($id_rol,$rol,$accion,$detalle);
-
-    $query="DELETE FROM libros WHERE CODIGO_LIBRO ='$ide'";
-
-    $result = $connection->query($query);
-
+    $query=$connection->prepare("DELETE FROM libros WHERE CODIGO_LIBRO =?");
+    $query->bind_param("s",$ide);
+    $query->execute();
     echo "Registro eliminado con exito";
-
+    CloseCon($connection);
 ?>
