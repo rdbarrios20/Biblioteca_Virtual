@@ -21,7 +21,8 @@
     function read_bitacora(){
         $connection = OpenCon();
         $connection->set_charset('utf8');
-    
+        
+        
         $query=$connection->prepare("SELECT * FROM bitacora ORDER BY id");
         $query->execute();
         
