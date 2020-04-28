@@ -13,7 +13,7 @@
     insert_bitacora($rol,$id_usuario,$accion,$detalle);
 
     $query=$connection->prepare("DELETE FROM libros WHERE CODIGO_LIBRO =?");
-    $query->bind_param("s",$ide);
+    $query->bind_param("i",$ide);
     $query->execute();
     echo "Registro eliminado con exito";
     CloseCon($connection);
