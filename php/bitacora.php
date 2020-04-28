@@ -4,20 +4,19 @@
 
     //include 'databaseConnection.php';
     
-    function insert_bitacora($id_usuario,$rol,$accion,$detalle){
+    function insert_bitacora($rol,$id_usuario,$accion,$detalle){
         
-        $_connection = abrirCon();
+        $_connection = OpenCon();
         date_default_timezone_set('America/Bogota');
         $fecha_creacion=date('y-m-d H:i:s');
         $query=$_connection->prepare("INSERT INTO bitacora (rol,id_usuario,accion,fecha,detalle) VALUES
-        ('".$rol."','".$id_usuario."','".$accion."','".$fecha_creacion."','".$detalle."')");
-        
+        (?,?,?,?,?)");
+        $query->bind_param("sisss",$rol,$id_usuario,$accion,$fecha_creacion,$detalle);
         $query->execute();
       
-        cerrarCon($_connection);
+        CloseCon($_connection);
     }
     
- 
     //Funcion para leer los datos ubicados en la tabla bitacora.
     function read_bitacora(){
         require_once('php\databaseConnection.php');
@@ -38,7 +37,7 @@
         
        echo json_encode(array('success'=>true,'$response'=>$array));
     
-        $connection->close();
+        CloseCon($connection);
     } 
     
 ?>
