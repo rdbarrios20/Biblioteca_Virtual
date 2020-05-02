@@ -10,6 +10,7 @@
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="Scripts/bitacora.js"></script>
     <title>Bitacora</title>
 </head>
 
@@ -37,14 +38,16 @@
         <div class="background">
             <br>
             <div class="busqueda">
-                <label for="fecha">Buscar por fecha</label>
-                <input type="date" name="fecha" id="fecha">
+                <label for="fecha">Limpiar por fecha</label>
+                <input type="date" name="fecha" id="fecha" class="">
+                <button type="button" class="btn btn-primary" id="limpiar" value="limpiar">Limpiar</button>
             </div>
             <div class="contenedor">
                 <div class="table-responsive">
                     <table class="table table-bordered table">
                         <thead>
                             <tr>
+                                <td>id</td>
                                 <td>Rol</td>
                                 <td>Id_usuario</td>
                                 <td>Accion</td>
@@ -52,7 +55,7 @@
                                 <td>Detalle</td>
                             </tr>
                         </thead>
-                        <tbody id="tbody">
+                        <tbody id="tBody">
 
                         </tbody>
                     </table>
