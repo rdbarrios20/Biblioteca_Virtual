@@ -3,27 +3,43 @@
     require("databaseConnection.php");
 
     //include 'databaseConnection.php';
+    //Comprobamos que el valor funcion no venga vacío
+    if(isset($_POST['funcion']) && !empty($_POST['funcion'])) {
+        $funcion = $_POST['funcion'];
+        //$fecha=$_POST['fecha'];
+
+        switch($funcion) {
+            case 'listar': 
+                    $result = read_bitacora();
+                    echo json_encode($result);
+                break;
+            case 'eliminar': 
+                    $fecha = $_POST['_fecha'];
+                    $result2 = eliminar($fecha);
+                break;
+        }
+    }
+
     
     function insert_bitacora($rol,$id_usuario,$accion,$detalle){
         
-        $_connection = OpenCon();
+        $connection = OpenCon();
         date_default_timezone_set('America/Bogota');
-        $fecha_creacion=date('y-m-d H:i:s');
-        $query=$_connection->prepare("INSERT INTO bitacora (rol,id_usuario,accion,fecha,detalle) VALUES
+        $fecha_creacion = date('y-m-d H:i:s');
+        $query = $connection->prepare("INSERT INTO bitacora (rol,id_usuario,accion,fecha,detalle) VALUES
         (?,?,?,?,?)");
         $query->bind_param("sisss",$rol,$id_usuario,$accion,$fecha_creacion,$detalle);
         $query->execute();
       
-        CloseCon($_connection);
+        CloseCon($connection);
     }
     
     //Funcion para leer los datos ubicados en la tabla bitacora.
     function read_bitacora(){
         $connection = OpenCon();
         $connection->set_charset('utf8');
-        
-        
-        $query=$connection->prepare("SELECT * FROM bitacora ORDER BY id");
+    
+        $query = $connection->prepare("SELECT * FROM bitacora ORDER BY fecha DESC");
         $query->execute();
         
         $array=[];
@@ -36,9 +52,33 @@
             $success=true;
         }
         
-       echo json_encode(array('success'=>true,'$response'=>$array));
+       CloseCon($connection);
+       
+       return (array('success'=>$success,'result'=>$array));
     
-        CloseCon($connection);
     } 
+
+    function eliminar($fecha){
+        $connection = OpenCon();
+        $connection->set_charset('utf8');
+
+        if(isset($fecha) && !empty($fecha)){
+            session_start();
+            $rol=$_SESSION['usuario']['tipo_usuario'];
+            $id_usuario=$_SESSION['usuario']['id_usuario'];
+            $accion="Eliminación";
+            $detalle="Eliminación bitacora fecha:'".$fecha."'";
+            insert_bitacora($rol,$id_usuario,$accion,$detalle);
     
+            $query = $connection->prepare("DELETE FROM bitacora WHERE fecha < ?");
+            $query->bind_param("s",$fecha);
+            $query->execute();
+            echo "Datos eliminados exitosamente";
+        }else{
+            echo "ingrese una fecha valida";
+        }
+        CloseCon($connection);   
+    }
+   
+
 ?>
