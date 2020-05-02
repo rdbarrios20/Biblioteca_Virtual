@@ -61,7 +61,6 @@ $(document).ready(function () {
             success: function (response) {
                 console.log("Datos eliminados correctamente");
                 debugger;
-                $('.clsFecha'+ fecha ).remove();
                 alert(response);
             },
             erorr: function (response) {
