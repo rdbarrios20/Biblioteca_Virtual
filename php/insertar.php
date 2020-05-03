@@ -3,6 +3,7 @@
     include("bitacora.php");
     require_once("databaseConnection.php");
     $connection = OpenCon();
+    $connection->set_charset('utf8');
 
     if (isset($_POST['codigo']) && ($_POST['nombre_libro'] != "")) {
         $codigo = $_POST['codigo'];
