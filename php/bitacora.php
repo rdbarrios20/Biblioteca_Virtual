@@ -15,7 +15,7 @@
                 break;
             case 'eliminar': 
                     $fecha = $_POST['_fecha'];
-                    $result2 = eliminar($fecha);
+                    $result = eliminar($fecha);
                 break;
         }
     }
@@ -64,16 +64,18 @@
         $connection->set_charset('utf8');
 
         if(isset($fecha) && !empty($fecha)){
+    
+            $query = $connection->prepare("DELETE FROM bitacora WHERE fecha < ?");
+            $query->bind_param("s",$fecha);
+            $query->execute();
+
             session_start();
             $rol=$_SESSION['usuario']['tipo_usuario'];
             $id_usuario=$_SESSION['usuario']['id_usuario'];
             $accion="Eliminación";
             $detalle="Eliminación bitacora fecha:'".$fecha."'";
             insert_bitacora($rol,$id_usuario,$accion,$detalle);
-    
-            $query = $connection->prepare("DELETE FROM bitacora WHERE fecha < ?");
-            $query->bind_param("s",$fecha);
-            $query->execute();
+            
             echo "Datos eliminados exitosamente";
         }else{
             echo "ingrese una fecha valida";
