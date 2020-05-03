@@ -24,6 +24,7 @@
     function insert_bitacora($rol,$id_usuario,$accion,$detalle){
         
         $connection = OpenCon();
+        $connection->set_charset('utf8');
         date_default_timezone_set('America/Bogota');
         $fecha_creacion = date('y-m-d H:i:s');
         $query = $connection->prepare("INSERT INTO bitacora (rol,id_usuario,accion,fecha,detalle) VALUES
