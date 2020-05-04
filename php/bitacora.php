@@ -1,8 +1,7 @@
 <?php
     //funcion para insertar datos a la tabla bitac4ora.
     require("databaseConnection.php");
-
-    //include 'databaseConnection.php';
+    
     //Comprobamos que el valor funcion no venga vacío
     if(isset($_POST['funcion']) && !empty($_POST['funcion'])) {
         $funcion = $_POST['funcion'];
