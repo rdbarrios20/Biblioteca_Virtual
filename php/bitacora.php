@@ -1,8 +1,7 @@
 <?php
     //funcion para insertar datos a la tabla bitac4ora.
     require("databaseConnection.php");
-
-    //include 'databaseConnection.php';
+    
     //Comprobamos que el valor funcion no venga vacío
     if(isset($_POST['funcion']) && !empty($_POST['funcion'])) {
         $funcion = $_POST['funcion'];
@@ -15,7 +14,7 @@
                 break;
             case 'eliminar': 
                     $fecha = $_POST['_fecha'];
-                    $result2 = eliminar($fecha);
+                    $result = eliminar($fecha);
                 break;
         }
     }
@@ -24,6 +23,7 @@
     function insert_bitacora($rol,$id_usuario,$accion,$detalle){
         
         $connection = OpenCon();
+        $connection->set_charset('utf8');
         date_default_timezone_set('America/Bogota');
         $fecha_creacion = date('y-m-d H:i:s');
         $query = $connection->prepare("INSERT INTO bitacora (rol,id_usuario,accion,fecha,detalle) VALUES
@@ -63,16 +63,18 @@
         $connection->set_charset('utf8');
 
         if(isset($fecha) && !empty($fecha)){
+    
+            $query = $connection->prepare("DELETE FROM bitacora WHERE fecha < ?");
+            $query->bind_param("s",$fecha);
+            $query->execute();
+
             session_start();
             $rol=$_SESSION['usuario']['tipo_usuario'];
             $id_usuario=$_SESSION['usuario']['id_usuario'];
             $accion="Eliminación";
             $detalle="Eliminación bitacora fecha:'".$fecha."'";
             insert_bitacora($rol,$id_usuario,$accion,$detalle);
-    
-            $query = $connection->prepare("DELETE FROM bitacora WHERE fecha < ?");
-            $query->bind_param("s",$fecha);
-            $query->execute();
+            
             echo "Datos eliminados exitosamente";
         }else{
             echo "ingrese una fecha valida";

@@ -44,6 +44,7 @@ $(document).ready(function () {
 
     }
 
+    //Funcion para eliminar la bitacora
     $('#limpiar').on('click', function () {
         limpiar();
     });
