@@ -1,39 +1,39 @@
 <?php
-    require("databaseConnection.php");
-    $connection=OpenCon();
-    $q = $_POST['texto'];
-        $query = '';
+    include("bitacora.php");
+    require_once("databaseConnection.php");
 
-    if (isset($q) && $q != '') {
-        //Executar la consulta con criterios
-        $query = "SELECT CODIGO_LIBRO,AUTOR,NOMBRE_LIBRO,FECHA_EXPEDICION,DISPONIBILIDAD,PRECIO_PUBLICO,PRECIO_INTERNO,RESERVADO,CANTIDAD FROM LIBROS WHERE CODIGO_LIBRO LIKE '%" . $q . "%' OR NOMBRE_LIBRO LIKE '%" . $q . "%' ";
-    } else {
-        //Executar la consulta sin criterios
-        $query = "SELECT * FROM LIBROS ORDER BY CODIGO_LIBRO";
+    $connection = OpenCon();
+    $criterio = $_POST['texto'];
+
+    if(isset($criterio) && !empty($criterio)){
+        $query = $connection->prepare("SELECT * FROM libros WHERE CODIGO_LIBRO LIKE '%$criterio%' OR NOMBRE_LIBRO LIKE '%$criterio%'");
+        $query->execute();
+    }else{
+        $query = $connection->prepare("SELECT * FROM libros WHERE CODIGO_LIBRO ORDER BY CODIGO_LIBRO DESC");
+        $query->execute();
     }
 
-
-    $result = $connection->query($query);
-    $arrayList = [];
-    $isSuccess = false; //VARAIBALE QUE VAMOS A USAR PARA INDICARLE AL FRONT SI EXISTEN COICIDENCIAS O NO
-
-    if (isset($result->num_rows) &&  $result->num_rows > 0) {
-
-         while ($item = $result->fetch_assoc()) {
-            array_push($arrayList, $item);
-
+    $success = false;
+    $array = [];
+    $result = $query->get_result();
+    if(isset($result->num_rows) && $result->num_rows > 0){
+        while($item = $result->fetch_assoc()){
+            array_push($array,$item);
         }
-     $isSuccess = true;
-   
-    } 
+        $success = true;
+    }
 
-    // Version: Responsidento en formato JSON
-    $response = array('success' => $isSuccess, 'result' => $arrayList);
-    header('content-type: application/json'); // This line makes no difference.
-    echo json_encode($response);
+    session_start();
+    $rol=$_SESSION['usuario']['tipo_usuario'];
+    $id_usuario=$_SESSION['usuario']['id_usuario'];
+    $accion="Consulta";
+    $detalle="Consulta libro";
+    insert_bitacora($rol,$id_usuario,$accion,$detalle);
 
-
-    // Cerrar conection al final
     CloseCon($connection);
+
+    $response = array('success' => $success, 'result' => $array);
+    header('content-type: application/json');
+    echo json_encode($response);
 
 ?>
