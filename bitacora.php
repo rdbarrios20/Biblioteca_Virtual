@@ -19,7 +19,7 @@
         <div class="loading2"></div>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Biblioteca Virtual</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,7 +40,8 @@
             <div class="busqueda">
                 <label for="fecha">Limpiar por fecha</label>
                 <input type="date" name="fecha" id="fecha" class="">
-                <button type="button" class="btn btn-primary" id="limpiar" value="limpiar">Limpiar</button>
+                <span></span>
+                <button type="button" class="btn btn-danger"  value="limpiar" data-toggle="modal" data-target="#Eliminar_fecha"><span class='icon-trash'></span></button>
             </div>
             <div class="contenedor">
                 <div class="table-responsive">
@@ -59,6 +60,23 @@
 
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Para Eliminar datos de la bitacora-->
+        <div class="modal" tabindex="-1" role="dialog" id="Eliminar_fecha">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><span class="icon-warning ico-warning"></h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Realmente desea Eliminar estos registros?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info eliminar" data-dismiss="modal">Aceptar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                    </div>
                 </div>
             </div>
         </div>
