@@ -1,5 +1,5 @@
 <?php
-    include("./php/bitacora.php");
+    include("php/bitacora.php");
     session_start();
     $rol=$_SESSION['usuario']['tipo_usuario'];
     $id_usuario=$_SESSION['usuario']['id_usuario'];
