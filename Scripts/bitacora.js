@@ -45,7 +45,7 @@ $(document).ready(function () {
     }
 
     //Funcion para eliminar la bitacora
-    $('#limpiar').on('click', function () {
+    $('.eliminar').on('click', function () {
         limpiar();
     });
     
@@ -61,7 +61,7 @@ $(document).ready(function () {
 
             success: function (response) {
                 console.log("Datos eliminados correctamente");
-                debugger;
+                location.reload();
                 alert(response);
             },
             erorr: function (response) {
