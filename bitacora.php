@@ -38,7 +38,7 @@
         <div class="background">
             <br>
             <div class="busqueda">
-                <label for="fecha">Limpiar por fecha</label>
+                <label for="fecha">Limpiar por fechas</label>
                 <input type="date" name="fecha" id="fecha" class="">
                 <span></span>
                 <button type="button" class="btn btn-danger"  value="limpiar" data-toggle="modal" data-target="#Eliminar_fecha"><span class='icon-trash'></span></button>
